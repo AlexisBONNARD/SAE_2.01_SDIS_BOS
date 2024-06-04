@@ -1,0 +1,79 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>SAE_2._01_SDIS_BOS</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="img\interface\valider.png\**" />
+    <EmbeddedResource Remove="img\interface\valider.png\**" />
+    <None Remove="img\interface\valider.png\**" />
+    <Page Remove="img\interface\valider.png\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="img\ajouter.png" />
+    <None Remove="img\enregistrer.png" />
+    <None Remove="img\interface\retour.png" />
+    <None Remove="img\interface\valider.png" />
+    <None Remove="img\modifier.png" />
+    <None Remove="img\moins.png" />
+    <None Remove="img\plus.png" />
+    <None Remove="img\rechercher.png" />
+    <None Remove="img\sdis.png" />
+    <None Remove="img\supprimer.png" />
+    <None Remove="img\t-shirt.png" />
+    <None Remove="qbbmg4jq.ues~" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\interface\ajouter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\interface\enregistrer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\interface\modifier.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\interface\moins.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\interface\plus.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\interface\rechercher.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\interface\retour.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\interface\sdis.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\interface\suprimer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\interface\valider.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\produit\999_0\Vetement\t-shirt.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="img\produit\999_0\Produit\" />
+    <Folder Include="img\produit\999_1\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Npgsql" Version="8.0.3" />
+  </ItemGroup>
+
+</Project>
