@@ -16,31 +16,10 @@
                 <ColumnDefinition Width="35*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal">
-                <Image Source="/img/interface/sdis.png" Stretch="Fill" Width="30" Height="30"/>
+                <Image Source="/img/interface/sdis.png" Stretch="Fill" Width="70" Height="70"/>
                 <TextBox TextWrapping="Wrap" Text=" N°" Background="#FFDDDDDD" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="70" FontWeight="Bold" Height="30"/>
             </StackPanel>
-            
-            <Menu Grid.ColumnSpan="2" Grid.Column="1">
-                <MenuItem Header="_Edit" FontSize="20">
-                    <MenuItem Command="ApplicationCommands.Copy"/>
-                    <MenuItem Command="ApplicationCommands.Cut"/>
-                    <MenuItem Command="ApplicationCommands.Paste"/>
-                </MenuItem>
-                <MenuItem Header="_Font" FontSize="20">
-                    <MenuItem Header="_Bold" IsCheckable="True"
-                        Checked="Bold_Checked"
-                        Unchecked="Bold_Unchecked"/>
-                    <MenuItem Header="_Italic" IsCheckable="True"
-                        Checked="Italic_Checked"
-                        Unchecked="Italic_Unchecked"/>
-                    <Separator/>
-                    <MenuItem Header="I_ncrease Font Size"
-                        Click="IncreaseFont_Click"/>
-                    <MenuItem Header="_Decrease Font Size"
-                        Click="DecreaseFont_Click"/>
-                </MenuItem>
-            </Menu>
-            
+
             <Button Content="Conte" Height="30" Width="138" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="2" Click="Button_Click" />
         </Grid>
         <TabControl>
@@ -60,10 +39,5 @@
                 </TabItem.Header>
             </TabItem>
         </TabControl>
-        <Grid>
-            <TextBox x:Name="textBox1" TextWrapping="Wrap" Margin="2,0,2,2" Text="The quick brown fox jumps over the lazy dog."/>
-            <Rectangle Fill="Gray" Stroke="Gray" />
-            <Button Content="Finaliser commande" FontSize="14" VerticalAlignment="Top" Height="50" Width="140" Margin="330,347,330,0"/>
-        </Grid>
     </StackPanel>
 </Window>
