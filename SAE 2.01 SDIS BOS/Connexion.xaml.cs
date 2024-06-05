@@ -103,6 +103,10 @@ namespace SAE_2._01_SDIS_BOS
             {
                 ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
             }
+            else
+            {
+                MessageBox.Show(this, "Erreur", "Vérifiez vos informations.", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
         }
 
