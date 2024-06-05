@@ -76,21 +76,7 @@ namespace SAE_2._01_SDIS_BOS
 
         public int Read()
         {
-            String sql = $"SELECT * num_sapeur  FROM sapeur  FROM Client where login_sapeur = '{login}' and mdp_sapeur = '{password}' ";
-            int nb = 0;
-            try
-            {
-                NpgsqlCommand cmd = new NpgsqlCommand(sql);
-                nb = cmd.ExecuteNonQuery();
-                return nb;
-                //nb permet de connaître le nb de lignes affectées par un insert, update, delete
-            }
-            catch (Exception sqlE)
-            {
-                Console.WriteLine("pb de requete : " + sql + "" + sqlE);
-                // juste pour le debug : à transformer en MsgBox 
-                return 0;
-            }
+            throw new NotImplementedException();
         }
        
 
