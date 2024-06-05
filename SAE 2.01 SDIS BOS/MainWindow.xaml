@@ -16,7 +16,7 @@
                 <ColumnDefinition Width="35*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal">
-                <Image Source="/img/interface/sdis.png" Stretch="Fill" Width="70" Height="70"/>
+                <Image Source="/img/interface/sdis.png" Stretch="Fill" Width="80" Height="80"/>
                 <TextBox TextWrapping="Wrap" Text=" N°" Background="#FFDDDDDD" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="70" FontWeight="Bold" Height="30"/>
             </StackPanel>
 
@@ -29,7 +29,7 @@
                         <TextBlock Text="Blue" Foreground="Blue" />
                     </StackPanel>
                 </TabItem.Header>
-                <Label Content="Content goes here..." />
+                <Label Content="doit contenir les pages ici" />
             </TabItem>
             <TabItem>
                 <TabItem.Header>
