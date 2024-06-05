@@ -1,7 +1,9 @@
 ﻿using Npgsql;
 using P3_BD_PostGRESQL;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -20,7 +22,7 @@ namespace SAE_2._01_SDIS_BOS
     /// <summary>
     /// Logique d'interaction pour Connexion.xaml
     /// </summary>
-    public partial class Connexion : Window,Icrud
+    public partial class Connexion : Window
     {
         private string login;
         private string password;
@@ -30,11 +32,7 @@ namespace SAE_2._01_SDIS_BOS
             InitializeComponent();
         }
 
-        public Connexion(string login, string password)
-        {
-            this.Login = login;
-            this.Password = password;
-        }
+      
 
         public string Login
         {
@@ -74,9 +72,11 @@ namespace SAE_2._01_SDIS_BOS
 
  
 
-        public int Read()
+        public bool  Read()
         {
-            throw new NotImplementedException();
+            String sql = $"SELECT numCasene FROM  Sapeur where LOGIN_SAPEUR = '{Login}' and MDP_SAPEUR =' {Password}'";
+            DataTable dt = DataAccess.Instance.GetData(sql);
+            return dt.Rows.Count == 1;
         }
        
 
@@ -89,13 +89,23 @@ namespace SAE_2._01_SDIS_BOS
         {
             //this.Fenetre.FenetreAOuvrir = "Stop";
             this.DialogResult = true;
-            ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
-            Connexion connexion = new Connexion();
+            
+            try
+            {
+                connexion.Read();
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine("Erreur lors de la conection à la base de données");
+                return;
+            }
+            if (connexion.Read())
+            {
+                ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
+            }
+
         }
 
-        int Icrud.ToString()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
