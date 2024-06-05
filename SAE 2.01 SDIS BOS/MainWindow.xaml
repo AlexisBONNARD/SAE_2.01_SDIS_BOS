@@ -8,8 +8,12 @@
         WindowState="Maximized"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        <Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="90*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="25*"/>
                 <ColumnDefinition Width="140*"/>
@@ -19,10 +23,9 @@
                 <Image Source="/img/interface/sdis.png" Stretch="Fill" Width="80" Height="80"/>
                 <TextBox TextWrapping="Wrap" Text=" N°" Background="#FFDDDDDD" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="70" FontWeight="Bold" Height="30"/>
             </StackPanel>
-
             <Button Content="Conte" Height="30" Width="138" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="2" Click="Button_Click" />
         </Grid>
-        <TabControl>
+        <TabControl Grid.Row="1">
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
@@ -65,7 +68,6 @@
                     <Button x:Name="butRetour" Width="60" Height="60" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Grid.Column="1">
                         <Image Source="/img/interface/retour.png"/>
                     </Button>
-                    <Image Source="/img/interface/sdis.png" Stretch="Fill" Width="70" Height="70" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1" />
                 </Grid>
 
             </TabItem>
@@ -77,10 +79,20 @@
                 </TabItem.Header>
 
                 <Grid>
-                    <Rectangle Stroke="Gray" Fill="Gray"/>
-                    <Label Content="Rechercher matériel" Margin="340,0,328,409"/>
-                    <TextBox TextWrapping="Wrap" Text="" Margin="282,25,282,390"/>
-                    <Button x:Name="butRechercher2" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="523,20,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="80*"/>
+                        <RowDefinition Height="20*"/>
+                    </Grid.RowDefinitions>
+                    <Rectangle Stroke="Gray" Fill="Gray" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
+                    <Label Content="Rechercher matériel" Margin="74,0,101,66" Grid.Column="1"/>
+                    <TextBox TextWrapping="Wrap" Text="" Margin="16,25,55,41" Grid.Column="1"/>
+                    <Button x:Name="butRechercher2" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="257,20,0,0" Grid.Column="1">
                         <Image Source="img\interface\rechercher.png" />
                     </Button>
                     <ComboBox HorizontalAlignment="Left" Margin="58,25,0,0" VerticalAlignment="Top" Width="120" Height="19">
@@ -89,7 +101,7 @@
                         <ComboBoxItem Content="Accessoires"/>
                     </ComboBox>
 
-                    <StackPanel Margin="324,60,312,251">
+                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="48,62,0,0" Grid.RowSpan="2" Grid.Column="1" Height="114" Width="165">
                         <Label Content="Afficher résultats" FontSize="18"/>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/img/produit/999_0/Vetement/t-shirt.png" Height="80" Width="80"/>
@@ -100,7 +112,7 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <StackPanel Margin="20,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <StackPanel Margin="20,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2" Height="178" Width="176">
                         <Label Content="Matériel commander" FontSize="18" HorizontalAlignment="Center"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Image Source="/img/produit/999_0/Vetement/t-shirt.png" Height="80" Width="80"/>
@@ -129,7 +141,7 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <StackPanel Margin="0,60,20,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <StackPanel Margin="0,60,20,0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="2" Height="197" Width="182">
                         <Label Content="Afficher nom materiel" FontSize="18" HorizontalAlignment="Center"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Label Content="Quantité" FontSize="15"/>
@@ -149,13 +161,12 @@
                             </Button>
                         </StackPanel>
                     </StackPanel>
-                    <Button x:Name="butRetour2" Width="60" Height="60" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10">
+                    <Button x:Name="butRetour2" Width="60" Height="60" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="157,0,0,0" Grid.Row="2" Grid.Column="2">
                         <Image Source="/img/interface/retour.png"/>
                     </Button>
-                    <Image Source="/img/interface/sdis.png" Stretch="Fill" Width="70" Height="70" HorizontalAlignment="Right" VerticalAlignment="Top" />
                 </Grid>
-                
+
             </TabItem>
         </TabControl>
-    </StackPanel>
+    </Grid>
 </Window>
