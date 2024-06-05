@@ -36,5 +36,30 @@ namespace SAE_2._01_SDIS_BOS
                 this.nomHabilitation = value;
             }
         }
+
+        public int Create()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Delete()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Read()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Update()
+        {
+            throw new NotImplementedException();
+        }
+
+        int Icrud.ToString()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

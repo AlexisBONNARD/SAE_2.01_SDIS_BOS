@@ -6,7 +6,74 @@ using System.Threading.Tasks;
 
 namespace SAE_2._01_SDIS_BOS
 {
-    internal class DetailCommande
+    public class DetailCommande:Icrud
     {
+        private int numCommande;
+        private int numMateriel;
+        private double quantite;
+
+        public int NumCommande
+        {
+            get
+            {
+                return this.numCommande;
+            }
+
+            set
+            {
+                this.numCommande = value;
+            }
+        }
+
+        public int NumMateriel
+        {
+            get
+            {
+                return this.numMateriel;
+            }
+
+            set
+            {
+                this.numMateriel = value;
+            }
+        }
+
+        public double Quantite
+        {
+            get
+            {
+                return this.quantite;
+            }
+
+            set
+            {
+                this.quantite = value;
+            }
+        }
+
+        public int Create()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Delete()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Read()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Update()
+        {
+            throw new NotImplementedException();
+        }
+
+        int Icrud.ToString()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
