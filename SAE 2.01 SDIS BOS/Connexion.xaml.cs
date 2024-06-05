@@ -23,5 +23,12 @@ namespace SAE_2._01_SDIS_BOS
         {
             InitializeComponent();
         }
+
+        private void Button_Connexion_Valid(object sender, RoutedEventArgs e)
+        {
+            //this.Fenetre.FenetreAOuvrir = "Stop";
+            this.DialogResult = true;
+            ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
+        }
     }
 }

@@ -4,17 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SAE_2._01_SDIS_BOS"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
         mc:Ignorable="d"
         Title="Connexion" Height="450" Width="800">
     <Grid>
         <Rectangle Fill="Gray" Stroke="Gray" />
         <Rectangle Width="288" Height="237" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="White" Stroke="Black" />
-        <Label Margin="368,103,364,305" Content="Connexion" />
-        <TextBox Margin="310,152,306,264" Text="Login" TextWrapping="Wrap" />
-        <TextBox Margin="310,189,306,227" Text="Password" TextWrapping="Wrap" />
-        <Button Margin="359,230,359,184" Content="Se connecter" />
+        <Label Content="Connexion" HorizontalAlignment="Center" VerticalAlignment="Center" Width="185" Height="25" Margin="0,0,100,210"/>
+        <TextBox Text="Login" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Width="185" Height="20" Margin="0,0,0,120" />
+        <TextBox Text="Password" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Width="185" Height="20" Margin="0,0,0,40"  />
+        <Button Content="Se connecter" Click="Button_Connexion_Valid" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Height="20" Margin="0,50,0,0" />
         <Image Source="/img/interface/sdis.png" Stretch="Fill" Width="70" Height="70" HorizontalAlignment="Right" VerticalAlignment="Top" />
-        <Button Margin="359,268,359,146" Content="Annuler" />
+        <Button Content="Annuler" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Height="20" Margin="0,140,0,0" />
 
     </Grid>
 </Window>
