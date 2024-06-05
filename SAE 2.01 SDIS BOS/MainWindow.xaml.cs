@@ -41,12 +41,13 @@ namespace SAE_2._01_SDIS_BOS
         public MainWindow()
         {
             InitializeComponent();
+            FenetreAOuvrir = "Connexion";
+            OuvertureFenetre();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //this.Fenetre.FenetreAOuvrir = "Stop";
-            FenetreAOuvrir = "Connexion";
-            OuvertureFenetre();
+        
         }
 
         public void OuvertureFenetre()
