@@ -111,7 +111,9 @@ namespace SAE_2._01_SDIS_BOS
                 {
                     Sapeur nouveau = new Sapeur(int.Parse(res["NUM_SAPEUR"].ToString()),
                     int.Parse(res["NUM_CASERNE"].ToString()), res["LOGIN_SAPEUR"].ToString(), res["MDP_SAPEUR"].ToString());
+                    LesSapeurs.Add(nouveau);
                 }
+               
                 return dataTable.Rows.Count;
             }
             catch (NpgsqlException e)

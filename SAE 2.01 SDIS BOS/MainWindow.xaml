@@ -8,6 +8,9 @@
         WindowState="Maximized"
         mc:Ignorable="d"
         Title="SDIS commandé contre le feux" Height="450" Width="800">
+    <Window.DataContext>
+        <local:Caserne x:Name="data"/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
