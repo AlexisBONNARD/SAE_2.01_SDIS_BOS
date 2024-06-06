@@ -9,14 +9,14 @@
         mc:Ignorable="d"
         Title="Connexion" Height="450" Width="800">
     <Window.DataContext>
-        <local:Connexion x:Name="connexion"/>
+        <local:Sapeur x:Name="connexion"/>
     </Window.DataContext>
     <Grid>
         <Rectangle Fill="Gray" Stroke="Gray" />
         <Rectangle Width="288" Height="237" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="White" Stroke="Black" />
         <Label Content="Connexion" HorizontalAlignment="Center" VerticalAlignment="Center" Width="185" Height="25" Margin="0,0,100,210"/>
-        <TextBox x:Name="tbLogin" Text="{Binding Login}"  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Width="185" Height="20" Margin="0,0,0,120" />
-        <TextBox x:Name="tbPassword" Text="{Binding Password}" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Width="185" Height="20" Margin="0,0,0,40"/>
+        <TextBox x:Name="tbLogin" Text="{Binding LoginCaserne}"  TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Width="185" Height="20" Margin="0,0,0,120" />
+        <TextBox x:Name="tbPassword" Text="{Binding MdpCaserne}" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Width="185" Height="20" Margin="0,0,0,40"/>
         <Button Content="Se connecter" Click="Button_Connexion_Valid" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Height="20" Margin="0,50,0,0" />
         <Image Source="/img/interface/sdis.png" Stretch="Fill" Width="70" Height="70" HorizontalAlignment="Right" VerticalAlignment="Top" />
         <Button Content="Annuler" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Height="20" Margin="0,140,0,0" />
