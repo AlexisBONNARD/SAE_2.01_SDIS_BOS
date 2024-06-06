@@ -110,9 +110,9 @@
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="1" Grid.Row="1">
                         <Label Content="Afficher résultats" FontSize="18"/>
                         <StackPanel Orientation="Horizontal">
-                            <DataGrid x:Name="dataGridmaterielCree" HorizontalAlignment="Center" BorderBrush="#000000" BorderThickness="5" FontSize="16">
+                            <DataGrid x:Name="dataGridmaterielCree" IsReadOnly="True" ItemsSource="{Binding Materiel}" HorizontalAlignment="Center" BorderBrush="#000000" BorderThickness="5" FontSize="16">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="URL Photo"/>
+                                    <DataGridTextColumn Header="Photo" Binding="{Binding lienPhoto}"/>
                                     <DataGridTextColumn Header="Nom Matériel"/>
                                     <DataGridTextColumn Header="Quantité"/>
                                     <DataGridTextColumn Header="Prix Achat"/>
