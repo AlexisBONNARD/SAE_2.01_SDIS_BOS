@@ -62,8 +62,8 @@ namespace SAE_2._01_SDIS_BOS
             bool isConnected = false; 
             //this.Fenetre.FenetreAOuvrir = "Stop";
             this.DialogResult = true;
-            data.ConnexionBD(tbLogin.Text,tbPassword.Password);
-            if (data.Read(tbLogin.Text) >=1) 
+            data.ConnexionBD(data.Login,tbPassword.Password);
+            if (data.Read(data.Login) ==1) 
             {
                 ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
             }
