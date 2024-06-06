@@ -9,7 +9,7 @@ namespace SAE_2._01_SDIS_BOS
    public class Caracteristique:Icrud
     {
         private int numCaracteristique;
-        private string nomCaracterique;
+        private string nomCaracteristique;
 
         public int NumCaracteristique
         {
@@ -24,16 +24,16 @@ namespace SAE_2._01_SDIS_BOS
             }
         }
 
-        public string NomCaracterique
+        public string NomCaracteristique
         {
             get
             {
-                return this.nomCaracterique;
+                return this.nomCaracteristique;
             }
 
             set
             {
-                this.nomCaracterique = value;
+                this.nomCaracteristique = value;
             }
         }
 
