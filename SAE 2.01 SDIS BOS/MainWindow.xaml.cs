@@ -44,7 +44,7 @@ namespace SAE_2._01_SDIS_BOS
             OuvertureFenetre();
             InitializeComponent();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonConection(object sender, RoutedEventArgs e)
         {
             //this.Fenetre.FenetreAOuvrir = "Stop";
             FenetreAOuvrir = "Connexion";
