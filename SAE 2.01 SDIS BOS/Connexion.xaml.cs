@@ -72,7 +72,7 @@ namespace SAE_2._01_SDIS_BOS
                 data.ConnexionBD();
                 isConnected = true;
             }
-            catch (Exception err)
+            else
             {
                 MessageBox.Show(this, "Erreur", "Vérifiez vos informations.", MessageBoxButton.OK, MessageBoxImage.Error);
             }

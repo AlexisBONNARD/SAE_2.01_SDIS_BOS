@@ -100,7 +100,14 @@ namespace SAE_2._01_SDIS_BOS
         }
         public int Read()
         {
-           throw new NotImplementedException();
+            String sql = "SELECT NUM_SAPEUR,NUM_CASERNE,LOGIN_SAPEUR,MDP_SAPEUR  FROM Sapeur where ";
+            try
+            {
+                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(sql, Connexion);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                foreach (DataRow res in dataTable.Rows)
+            {
         }
 
         public int Create()
