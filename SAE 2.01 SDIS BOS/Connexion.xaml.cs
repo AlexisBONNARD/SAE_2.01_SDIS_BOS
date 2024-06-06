@@ -64,28 +64,28 @@ namespace SAE_2._01_SDIS_BOS
 
         private void Button_Connexion_Valid(object sender, RoutedEventArgs e)
         {
-            /*
+            
             //this.Fenetre.FenetreAOuvrir = "Stop";
             this.DialogResult = true;
 
             try
             {
-                //connexion.Read();
+                connexion.Read();
             }
             catch (Exception err)
             {
                 Console.WriteLine("Erreur lors de la conection à la base de données");
                 return;
             }
-           : if (connexion.Read())
+            if (connexion.Read() == 1)
             {
-                ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
+              Console.WriteLine("We did it ");
             }
             else
             {
                 MessageBox.Show(this, "Erreur", "Vérifiez vos informations.", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            */
+            
 
         }
 

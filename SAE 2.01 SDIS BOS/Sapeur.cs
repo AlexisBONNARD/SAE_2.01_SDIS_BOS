@@ -82,8 +82,10 @@ namespace SAE_2._01_SDIS_BOS
             int nb = 0;
             String sql = $"SELECT numCasene FROM  Sapeur where LOGIN_SAPEUR = '{LoginCaserne}' and MDP_SAPEUR =' {MdpCaserne}'";
             DataTable dt = DataAccess.Instance.GetData(sql);
-            if(dt.Rows.Count!=null)
-            nb = dt.Rows.Count;
+            if (dt != null)
+            {
+                nb = dt.Rows.Count;
+            }
             return nb;
         }
 
