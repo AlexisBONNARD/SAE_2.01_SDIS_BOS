@@ -22,7 +22,7 @@
                 <Image Source="/img/interface/sdis.png" Stretch="Fill" Width="80" Height="80"/>
                 <TextBox TextWrapping="Wrap" Text=" N°" Background="#FFDDDDDD" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" FontWeight="Bold" Height="30" Margin="20,0,0,0"/>
             </StackPanel>
-            <Button Content="Compte" Height="30" Width="138" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="2" Click="Button_Click" Margin="0,0,20,0" />
+            <Button Content="Compte" Height="30" Width="138" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="2" Click="ButtonConection" Margin="0,0,20,0" />
         </Grid>
         <TabControl Grid.Row="1">
             <TabItem>
@@ -94,7 +94,7 @@
                         <RowDefinition Height="8*"/>
                     </Grid.RowDefinitions>
                     <Rectangle Stroke="Gray" Fill="Gray" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
-                    <Label Content="Rechercher matériel" Grid.Column="1" HorizontalAlignment="Center" FontSize="20"/>
+                    <Label Content="Rechercher matériel" Grid.Column="1" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Top"/>
                     <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0">
                         <TextBox x:Name="textRechercherCree" TextWrapping="Wrap" Text="Rechercher" Grid.Column="1" Width="200" Height="20" VerticalAlignment="Bottom" Margin="0,0,0,5" FontSize="16"/>
                         <Button x:Name="butRechercherCree" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom">
@@ -110,24 +110,32 @@
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="1" Grid.Row="1">
                         <Label Content="Afficher résultats" FontSize="18"/>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="/img/produit/999_0/Vetement/t-shirt.png" Height="80" Width="80"/>
-                            <StackPanel>
-                                <Label Content="T-Shirt Sapeur" FontSize="18"/>
-                                <Label Content="prix" FontSize="18"/>
-                            </StackPanel>
+                            <DataGrid x:Name="dataGridmaterielCree" HorizontalAlignment="Center" BorderBrush="#000000" BorderThickness="5" FontSize="16">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="URL Photo"/>
+                                    <DataGridTextColumn Header="Nom Matériel"/>
+                                    <DataGridTextColumn Header="Quantité"/>
+                                    <DataGridTextColumn Header="Prix Achat"/>
+                                    <DataGridTextColumn Header="Fournisseur"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
                         </StackPanel>
                     </StackPanel>
 
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Row="1">
                         <Label Content="Matériel commander" FontSize="18" HorizontalAlignment="Center"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Image Source="/img/produit/999_0/Vetement/t-shirt.png" Height="80" Width="80"/>
-                            <StackPanel>
-                                <Label Content="quantiter" FontSize="18"/>
-                                <Label Content="prix" FontSize="18"/>
-                            </StackPanel>
+                            <DataGrid x:Name="dataGridCommandeCree" HorizontalAlignment="Center" BorderBrush="#000000" BorderThickness="5" FontSize="16">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="URL Photo"/>
+                                    <DataGridTextColumn Header="Nom Matériel"/>
+                                    <DataGridTextColumn Header="Quantité"/>
+                                    <DataGridTextColumn Header="Prix Achat"/>
+                                    <DataGridTextColumn Header="Fournisseur"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
                         </StackPanel>
-                        <Label Content="Prix Total : " FontSize="18" FontWeight="Bold"/>
+                        <Label x:Name="labelPrixTotalCree" Content="Prix Total : " FontSize="18" FontWeight="Bold"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Button x:Name="butValiderCree" ToolTip="Ajouter un nouveau département" Width="30" Height="30">
                                 <Image Source="img\interface\valider.png" />
@@ -156,10 +164,10 @@
                         <Slider Width="120" x:Name="sliderQuantiteCree"/>
                         <Label Content="Mode de livraison" FontSize="20" HorizontalAlignment="Center"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <RadioButton Content="Voiture" Margin="0,0,20,0"/>
-                            <RadioButton Content="Camion"/>
+                            <RadioButton x:Name="radioButVoitureCree" Content="Voiture" Margin="0,0,20,0"/>
+                            <RadioButton x:Name="radioButCamionCree" Content="Camion"/>
                         </StackPanel>
-                        <Label Content="Prix Materiel : 9.99€" HorizontalAlignment="Right" FontSize="18" FontWeight="Bold"/>
+                        <Label x:Name="labelPrixmaterielCree" Content="Prix Materiel : 9.99€" HorizontalAlignment="Right" FontSize="18" FontWeight="Bold"/>
 
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Button x:Name="butAjouterCree" ToolTip="Ajouter un nouveau département" Width="30" Height="30">
