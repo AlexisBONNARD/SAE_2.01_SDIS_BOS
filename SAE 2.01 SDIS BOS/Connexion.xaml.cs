@@ -1,5 +1,4 @@
 ﻿using Npgsql;
-using P3_BD_PostGRESQL;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
@@ -70,24 +69,16 @@ namespace SAE_2._01_SDIS_BOS
 
             try
             {
-                connexion.Read();
+                data.ConnexionBD();
             }
             catch (Exception err)
             {
-                Console.WriteLine("Erreur lors de la conection à la base de données");
-                return;
-            }
-            if (connexion.Read() == 1)
-            {
-                Console.WriteLine("We did it ");
-                this.DialogResult = true;
-                ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
-            }
-            else
-            {
                 MessageBox.Show(this, "Erreur", "Vérifiez vos informations.", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            
+
+            ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
+            //this.DialogResult = true;
+
 
         }
 

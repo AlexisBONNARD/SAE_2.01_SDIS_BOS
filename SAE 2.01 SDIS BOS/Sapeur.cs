@@ -1,5 +1,4 @@
-﻿using P3_BD_PostGRESQL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -79,14 +78,7 @@ namespace SAE_2._01_SDIS_BOS
 
         public int Read()
         {
-            int nb = 0;
-            String sql = $"SELECT numCasene FROM  Sapeur where LOGIN_SAPEUR = '{LoginCaserne}' and MDP_SAPEUR =' {MdpCaserne}'";
-            DataTable dt = DataAccess.Instance.GetData(sql);
-            if (dt != null)
-            {
-                nb = dt.Rows.Count;
-            }
-            return nb;
+            throw new NotImplementedException();
         }
 
         public int Update()
