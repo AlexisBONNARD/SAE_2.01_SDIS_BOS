@@ -31,8 +31,6 @@ namespace SAE_2._01_SDIS_BOS
             InitializeComponent();
         }
 
-
-
         public string Login
         {
             get
@@ -59,8 +57,6 @@ namespace SAE_2._01_SDIS_BOS
             }
         }
 
-  
-
         private void Button_Connexion_Valid(object sender, RoutedEventArgs e)
         {
             bool isConnected = false; 
@@ -75,11 +71,6 @@ namespace SAE_2._01_SDIS_BOS
             {
                 MessageBox.Show(this, "Erreur", "Vérifiez vos informations.", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-
-            //this.DialogResult = true;
-
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
