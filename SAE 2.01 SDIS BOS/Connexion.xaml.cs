@@ -74,9 +74,7 @@ namespace SAE_2._01_SDIS_BOS
 
         public bool Read()
         {
-            String sql = $"SELECT numCasene FROM  Sapeur where LOGIN_SAPEUR = '{Login}' and MDP_SAPEUR =' {Password}'";
-            DataTable dt = DataAccess.Instance.GetData(sql);
-            return dt.Rows.Count == 1;
+         
         }
 
 
