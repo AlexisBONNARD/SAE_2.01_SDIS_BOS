@@ -63,20 +63,29 @@ namespace SAE_2._01_SDIS_BOS
 
         private void Button_Connexion_Valid(object sender, RoutedEventArgs e)
         {
-            
+            bool isConnected = false; 
             //this.Fenetre.FenetreAOuvrir = "Stop";
             this.DialogResult = true;
 
             try
             {
                 data.ConnexionBD();
+                isConnected = true;
             }
             catch (Exception err)
             {
                 MessageBox.Show(this, "Erreur", "Vérifiez vos informations.", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
+            if (isConnected)
+            {
+                ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
+            }
+            else
+            {
+                this.DialogResult = true;
+                ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Quiter";
+            }
             //this.DialogResult = true;
 
 
