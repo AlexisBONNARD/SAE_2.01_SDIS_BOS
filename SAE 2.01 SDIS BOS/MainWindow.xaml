@@ -10,7 +10,7 @@
         Title="SDIS commandé contre le feux" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="15*"/>
             <RowDefinition Height="90*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
@@ -44,8 +44,8 @@
                             <RowDefinition Height="90*"/>
                         </Grid.RowDefinitions>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBox Text="" TextWrapping="Wrap" Height="25" Width="300" />
-                            <Button x:Name="butRechercher" Width="30" Height="30" >
+                            <TextBox x:Name="textRechercherConsulter" TextWrapping="Wrap" Height="25" Width="300" />
+                            <Button x:Name="butRechercherConsulter" Width="30" Height="30" >
                                 <Image Source="img\interface\rechercher.png" />
                             </Button>
                         </StackPanel>
@@ -72,9 +72,6 @@
                         <DatePicker />
                         <Button Width="80" Margin="0,20,0,0" Content="Valider" FontSize="14" FontWeight="Bold" IsDefault="True" />
                     </StackPanel>
-                    <Button x:Name="butRetour" Width="60" Height="60" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Grid.Column="1">
-                        <Image Source="/img/interface/retour.png"/>
-                    </Button>
                 </Grid>
 
             </TabItem>
@@ -93,14 +90,13 @@
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="2*"/>
-                        <RowDefinition Height="7*"/>
-                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="8*"/>
                     </Grid.RowDefinitions>
                     <Rectangle Stroke="Gray" Fill="Gray" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
                     <Label Content="Rechercher matériel" Grid.Column="1" HorizontalAlignment="Center" FontSize="20"/>
                     <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0">
-                        <TextBox TextWrapping="Wrap" Text="" Grid.Column="1" Width="200" Height="20" VerticalAlignment="Bottom" Margin="0,0,0,5"/>
-                        <Button x:Name="butRechercher2" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                        <TextBox x:Name="textRechercherCrée" Grid.Column="1" Width="200" Height="20" VerticalAlignment="Bottom" Margin="0,0,0,5"/>
+                        <Button x:Name="butRechercherCrée" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                             <Image Source="img\interface\rechercher.png" />
                         </Button>
                     </StackPanel>
@@ -132,13 +128,13 @@
                         </StackPanel>
                         <Label Content="Prix Total : " FontSize="18" FontWeight="Bold"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button x:Name="butValider" ToolTip="Ajouter un nouveau département" Width="30" Height="30">
+                            <Button x:Name="butValiderCrée" ToolTip="Ajouter un nouveau département" Width="30" Height="30">
                                 <Image Source="img\interface\valider.png" />
                             </Button>
-                            <Button x:Name="butSuprimer" ToolTip="Ajouter un nouveau département" Margin="10,0,0,0" Width="30" Height="30">
+                            <Button x:Name="butSuprimerCrée" ToolTip="Ajouter un nouveau département" Margin="10,0,0,0" Width="30" Height="30">
                                 <Image Source="img\interface\suprimer.png" />
                             </Button>
-                            <Button x:Name="butAnnuler" ToolTip="Ajouter un nouveau département" Margin="10,0,0,0" Width="30" Height="30">
+                            <Button x:Name="butAnnulerCrée" ToolTip="Ajouter un nouveau département" Margin="10,0,0,0" Width="30" Height="30">
                                 <Image Source="img\interface\ajouter.png" RenderTransformOrigin="0.5,0.5">
                                     <Image.RenderTransform>
                                         <TransformGroup>
@@ -165,14 +161,11 @@
                         <Label Content="Prix Materiel : 9.99€" HorizontalAlignment="Right" FontSize="18" FontWeight="Bold"/>
 
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button x:Name="butAjouter" ToolTip="Ajouter un nouveau département" Width="30" Height="30">
+                            <Button x:Name="butAjouterCrée" ToolTip="Ajouter un nouveau département" Width="30" Height="30">
                                 <Image Source="img\interface\ajouter.png" />
                             </Button>
                         </StackPanel>
                     </StackPanel>
-                    <Button x:Name="butRetour2" Width="60" Height="60" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="2" Margin="0,0,10,10">
-                        <Image Source="/img/interface/retour.png"/>
-                    </Button>
                 </Grid>
 
             </TabItem>
