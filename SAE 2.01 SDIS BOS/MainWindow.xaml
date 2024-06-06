@@ -32,13 +32,13 @@
                     </StackPanel>
                 </TabItem.Header>
 
-                <Grid Height="434" VerticalAlignment="Bottom">
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="63*" />
                         <ColumnDefinition Width="17*" />
                     </Grid.ColumnDefinitions>
-                    <Rectangle Grid.ColumnSpan="2" Width="800" Height="434" HorizontalAlignment="Left" VerticalAlignment="Center" Fill="Gray" Stroke="Black" />
-                    <DataGrid Width="630" Height="320" Margin="0,114,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="#FF040404" BorderThickness="5" >
+                    <Rectangle Grid.ColumnSpan="2" Fill="Gray" Stroke="Black" />
+                    <DataGrid HorizontalAlignment="Left" VerticalAlignment="Bottom" BorderBrush="#FF040404" BorderThickness="5" Height="300" >
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="URL Photo"/>
                             <DataGridTextColumn Header="Nom Matériel"/>
@@ -53,10 +53,12 @@
                             <DataGridTextColumn Header="Fournisseur"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <TextBox Margin="197,47,197,369" Text="" TextWrapping="Wrap" />
-                    <Button x:Name="butRechercher" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="440,42,0,0">
-                        <Image Source="img\interface\rechercher.png" />
-                    </Button>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
+                        <TextBox Text="" TextWrapping="Wrap" Height="25" Width="300" />
+                        <Button x:Name="butRechercher" Width="30" Height="30" >
+                            <Image Source="img\interface\rechercher.png" />
+                        </Button>
+                    </StackPanel>
                     <Button Grid.Column="1" Width="120" Height="28" Margin="0,114,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Content="renseigner date"/>
                     <StackPanel Height="180" Margin="0,184,0,70" Grid.Column="1">
                         <Label Content="Renseigner date de livraison" FontSize="12" FontWeight="Bold" />
