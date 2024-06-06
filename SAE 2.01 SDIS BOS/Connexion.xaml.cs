@@ -79,7 +79,9 @@ namespace SAE_2._01_SDIS_BOS
             }
             if (connexion.Read() == 1)
             {
-              Console.WriteLine("We did it ");
+                Console.WriteLine("We did it ");
+                this.DialogResult = true;
+                ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
             }
             else
             {
@@ -89,6 +91,10 @@ namespace SAE_2._01_SDIS_BOS
 
         }
 
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+            ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Quiter";
+        }
     }
 }

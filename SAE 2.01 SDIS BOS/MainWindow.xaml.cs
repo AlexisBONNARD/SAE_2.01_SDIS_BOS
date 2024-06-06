@@ -29,7 +29,7 @@ namespace SAE_2._01_SDIS_BOS
             get { return fenetreAOuvrir; }
             set
             {
-                if (value != "Connexion" && value != "Jeux")
+                if (value != "Connexion" && value != "Jeux" && value != "Quiter")
                     throw new ArgumentNullException("bruh");
                 fenetreAOuvrir = value;
             }
@@ -40,6 +40,8 @@ namespace SAE_2._01_SDIS_BOS
 
         public MainWindow()
         {
+            FenetreAOuvrir = "Connexion";
+            OuvertureFenetre();
             InitializeComponent();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
