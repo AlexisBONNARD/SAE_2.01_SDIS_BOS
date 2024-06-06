@@ -82,12 +82,12 @@ namespace SAE_2._01_SDIS_BOS
             //this.ConnexionBD();
            // this.Read();
         }
-        public void ConnexionBD()
+        public void ConnexionBD(string login ,string password)
         {
             try
             {
                 Connexion = new NpgsqlConnection();
-                Connexion.ConnectionString = $"Server=srv-peda-new; port=5433; Database=SDIS; Search Path = SDIS; uid={Login};password={Password}";
+                Connexion.ConnectionString = $"Server=srv-peda-new; port=5433; Database=SDIS; Search Path = SDIS; uid={login};password={password}";
                 // à compléter dans les "" 
                 // @ sert à enlever tout pb avec les caractères 
                 Connexion.Open();
@@ -95,19 +95,27 @@ namespace SAE_2._01_SDIS_BOS
             catch (Exception e)
             {
                 Console.WriteLine("pb de connexion : " + e);
+                return;
                 // juste pour le debug : à transformer en MsgBox 
             }
         }
-        public int Read()
+        public int Read(string login)
         {
-            String sql = "SELECT NUM_SAPEUR,NUM_CASERNE,LOGIN_SAPEUR,MDP_SAPEUR  FROM Sapeur where ";
+            String sql = $"SELECT NUM_SAPEUR,NUM_CASERNE,LOGIN_SAPEUR,MDP_SAPEUR  FROM Sapeur where LOGIN_SAPEUR ='{login}' ";
             try
             {
                 NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(sql, Connexion);
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
                 foreach (DataRow res in dataTable.Rows)
-            {
+                {
+                    Sapeur nouveau = new Sapeur(int.Parse(res["NUM_SAPEUR"].ToString()),
+                    int.Parse(res["NUM_CASERNE"].ToString()), res["LOGIN_SAPEUR"].ToString(), res["MDP_SAPEUR"].ToString());
+                }
+                return dataTable.Rows.Count;
+            }
+            catch (NpgsqlException e)
+            { Console.WriteLine("pb de requete : " + e); return 0; }
         }
 
         public int Create()
