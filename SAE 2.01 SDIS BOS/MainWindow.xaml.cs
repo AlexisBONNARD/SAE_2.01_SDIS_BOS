@@ -43,6 +43,7 @@ namespace SAE_2._01_SDIS_BOS
             FenetreAOuvrir = "Connexion";
             OuvertureFenetre();
             InitializeComponent();
+            lbNumCaserne.Content = data.LesSapeurs[0].NumSapeur;
         }
         private void ButtonConection(object sender, RoutedEventArgs e)
         {

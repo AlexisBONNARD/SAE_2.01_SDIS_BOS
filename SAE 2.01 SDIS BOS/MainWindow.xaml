@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="SDIS commandé contre le feux" Height="450" Width="800">
     <Window.DataContext>
-        <local:Caserne x:Name="data"/>
+        <local:ApplicationData x:Name="data"/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
