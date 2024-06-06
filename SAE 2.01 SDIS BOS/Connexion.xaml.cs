@@ -60,28 +60,7 @@ namespace SAE_2._01_SDIS_BOS
             }
         }
 
-        public int Create()
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Delete()
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-        public bool Read()
-        {
-         
-        }
-
-
-        public int Update()
-        {
-            throw new NotImplementedException();
-        }
+  
 
         private void Button_Connexion_Valid(object sender, RoutedEventArgs e)
         {
