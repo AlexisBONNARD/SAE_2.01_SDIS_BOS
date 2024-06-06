@@ -14,6 +14,14 @@ namespace SAE_2._01_SDIS_BOS
         private string loginCaserne;
         private string mdpCaserne;
 
+        public Sapeur(int numSapeur, int numCasene, string loginCaserne, string mdpCaserne)
+        {
+            this.NumSapeur = numSapeur;
+            this.NumCasene = numCasene;
+            this.LoginCaserne = loginCaserne;
+            this.MdpCaserne = mdpCaserne;
+        }
+
         public int NumSapeur
         {
             get

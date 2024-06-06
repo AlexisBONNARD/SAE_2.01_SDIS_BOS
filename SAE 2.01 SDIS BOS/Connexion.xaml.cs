@@ -66,26 +66,17 @@ namespace SAE_2._01_SDIS_BOS
             bool isConnected = false; 
             //this.Fenetre.FenetreAOuvrir = "Stop";
             this.DialogResult = true;
-
-            try
-            {
-                data.ConnexionBD();
-                isConnected = true;
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(this, "Erreur", "Vérifiez vos informations.", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-            if (isConnected)
+            data.ConnexionBD(tbLogin.Text,tbPassword.Password);
+            if (data.Read(tbLogin.Text) >=1) 
             {
                 ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
             }
             else
             {
-                this.DialogResult = true;
-                ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Quiter";
+                MessageBox.Show(this, "Erreur", "Vérifiez vos informations.", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+
             //this.DialogResult = true;
 
 
