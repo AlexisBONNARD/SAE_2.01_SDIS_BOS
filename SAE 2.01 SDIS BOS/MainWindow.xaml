@@ -38,29 +38,36 @@
                         <ColumnDefinition Width="17*" />
                     </Grid.ColumnDefinitions>
                     <Rectangle Grid.ColumnSpan="2" Fill="Gray" Stroke="Black" />
-                    <DataGrid HorizontalAlignment="Left" VerticalAlignment="Bottom" BorderBrush="#FF040404" BorderThickness="5" Height="300" FontSize="16" >
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="URL Photo"/>
-                            <DataGridTextColumn Header="Nom Matériel"/>
-                            <DataGridTextColumn Header="Marque"/>
-                            <DataGridTextColumn Header="Description"/>
-                            <DataGridTextColumn Header="Prix Achat"/>
-                            <DataGridTextColumn Header="Type Produit"/>
-                            <DataGridTextColumn Header="Catégorie"/>
-                            <DataGridTextColumn Header="Taille"/>
-                            <DataGridTextColumn Header="Couleur"/>
-                            <DataGridTextColumn Header="matière"/>
-                            <DataGridTextColumn Header="Fournisseur"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
-                        <TextBox Text="" TextWrapping="Wrap" Height="25" Width="300" />
-                        <Button x:Name="butRechercher" Width="30" Height="30" >
-                            <Image Source="img\interface\rechercher.png" />
-                        </Button>
-                    </StackPanel>
-                    <Button Grid.Column="1" Width="120" Height="28" Margin="0,114,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Content="renseigner date"/>
-                    <StackPanel Height="180" Margin="0,184,0,70" Grid.Column="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10*"/>
+                            <RowDefinition Height="90*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBox Text="" TextWrapping="Wrap" Height="25" Width="300" />
+                            <Button x:Name="butRechercher" Width="30" Height="30" >
+                                <Image Source="img\interface\rechercher.png" />
+                            </Button>
+                        </StackPanel>
+                        <DataGrid HorizontalAlignment="Center" BorderBrush="#FF040404" BorderThickness="5" FontSize="16" Grid.Row="1">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="URL Photo"/>
+                                <DataGridTextColumn Header="Nom Matériel"/>
+                                <DataGridTextColumn Header="Marque"/>
+                                <DataGridTextColumn Header="Description"/>
+                                <DataGridTextColumn Header="Prix Achat"/>
+                                <DataGridTextColumn Header="Type Produit"/>
+                                <DataGridTextColumn Header="Catégorie"/>
+                                <DataGridTextColumn Header="Taille"/>
+                                <DataGridTextColumn Header="Couleur"/>
+                                <DataGridTextColumn Header="matière"/>
+                                <DataGridTextColumn Header="Fournisseur"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    </Grid>
+
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
                         <Label Content="Renseigner daten de livraison" FontSize="12" FontWeight="Bold" />
                         <DatePicker />
                         <Button Width="80" Margin="0,20,0,0" Content="Valider" FontSize="14" FontWeight="Bold" IsDefault="True" />
