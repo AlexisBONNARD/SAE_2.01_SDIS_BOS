@@ -38,7 +38,7 @@
                         <ColumnDefinition Width="17*" />
                     </Grid.ColumnDefinitions>
                     <Rectangle Grid.ColumnSpan="2" Fill="Gray" Stroke="Black" />
-                    <DataGrid HorizontalAlignment="Left" VerticalAlignment="Bottom" BorderBrush="#FF040404" BorderThickness="5" Height="300" >
+                    <DataGrid HorizontalAlignment="Left" VerticalAlignment="Bottom" BorderBrush="#FF040404" BorderThickness="5" Height="300" FontSize="16" >
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="URL Photo"/>
                             <DataGridTextColumn Header="Nom Matériel"/>
@@ -61,10 +61,9 @@
                     </StackPanel>
                     <Button Grid.Column="1" Width="120" Height="28" Margin="0,114,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Content="renseigner date"/>
                     <StackPanel Height="180" Margin="0,184,0,70" Grid.Column="1">
-                        <Label Content="Renseigner date de livraison" FontSize="12" FontWeight="Bold" />
+                        <Label Content="Renseigner daten de livraison" FontSize="12" FontWeight="Bold" />
                         <DatePicker />
                         <Button Width="80" Margin="0,20,0,0" Content="Valider" FontSize="14" FontWeight="Bold" IsDefault="True" />
-
                     </StackPanel>
                     <Button x:Name="butRetour" Width="60" Height="60" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Grid.Column="1">
                         <Image Source="/img/interface/retour.png"/>
