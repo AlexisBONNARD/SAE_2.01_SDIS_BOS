@@ -32,7 +32,7 @@ namespace SAE_2._01_SDIS_BOS
             InitializeComponent();
         }
 
-      
+
 
         public string Login
         {
@@ -70,15 +70,15 @@ namespace SAE_2._01_SDIS_BOS
             throw new NotImplementedException();
         }
 
- 
 
-        public bool  Read()
+
+        public bool Read()
         {
             String sql = $"SELECT numCasene FROM  Sapeur where LOGIN_SAPEUR = '{Login}' and MDP_SAPEUR =' {Password}'";
             DataTable dt = DataAccess.Instance.GetData(sql);
             return dt.Rows.Count == 1;
         }
-       
+
 
         public int Update()
         {
@@ -87,19 +87,20 @@ namespace SAE_2._01_SDIS_BOS
 
         private void Button_Connexion_Valid(object sender, RoutedEventArgs e)
         {
+            /*
             //this.Fenetre.FenetreAOuvrir = "Stop";
             this.DialogResult = true;
-            
+
             try
             {
-                connexion.Read();
+                //connexion.Read();
             }
             catch (Exception err)
             {
                 Console.WriteLine("Erreur lors de la conection à la base de données");
                 return;
             }
-            if (connexion.Read())
+           : if (connexion.Read())
             {
                 ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
             }
@@ -107,9 +108,10 @@ namespace SAE_2._01_SDIS_BOS
             {
                 MessageBox.Show(this, "Erreur", "Vérifiez vos informations.", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            */
 
         }
 
-       
+
     }
 }
