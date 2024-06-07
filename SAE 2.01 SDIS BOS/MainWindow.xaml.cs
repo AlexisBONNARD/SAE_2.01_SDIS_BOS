@@ -62,7 +62,8 @@ namespace SAE_2._01_SDIS_BOS
             lbNumCaserne.Content = $"N° {numCaserne}";
             Sapeur.Read();
             Commande.Read();
-           
+            dgCommande.Items.Filter = ContientMotClef;
+
         }
         private void ButtonConection(object sender, RoutedEventArgs e)
         {
@@ -71,6 +72,15 @@ namespace SAE_2._01_SDIS_BOS
             OuvertureFenetre();
             lbNumCaserne.Content = $"N° {numCaserne}";
 
+        }
+        private bool ContientMotClef(object obj)
+        {
+            Commande uneCommande = obj as Commande;
+            if (String.IsNullOrEmpty(textRechercherConsulter.Text))
+                return true;
+            else
+                return (uneCommande.NumCommande.ToString().StartsWith(textRechercherConsulter.Text, StringComparison.OrdinalIgnoreCase) ||
+                    uneCommande.NumCommande.ToString().StartsWith(textRechercherConsulter.Text, StringComparison.OrdinalIgnoreCase));
         }
 
         public void OuvertureFenetre()
@@ -122,6 +132,21 @@ namespace SAE_2._01_SDIS_BOS
                 dtDateLivraison.SelectedDate = commande.DateLivraison;
 
             }
+        }
+
+        private void textRechercherConsulter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+            
+                CollectionViewSource.GetDefaultView(dgCommande.ItemsSource).Refresh();
+            
+
+        }
+
+        private void mainwindows_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            DataAccess.Instance.DeconnexionBD();
+            Application.Current.Shutdown();
         }
     }
 }

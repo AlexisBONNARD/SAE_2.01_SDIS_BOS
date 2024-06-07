@@ -110,23 +110,7 @@ namespace SAE_2._01_SDIS_BOS
             LesSapeurs = Sapeur.Read();
             LesCommandes = Commande.Read();
         }
-        public void ConnexionBD(string login ,string password)
-        {
-            try
-            {
-                Connexion = new NpgsqlConnection();
-                Connexion.ConnectionString = $"Server=srv-peda-new; port=5433; Database=SDIS; Search Path = SDIS; uid={login};password={password}";
-                // à compléter dans les "" 
-                // @ sert à enlever tout pb avec les caractères 
-                Connexion.Open();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("pb de connexion : " + e);
-                return;
-                // juste pour le debug : à transformer en MsgBox 
-            }
-        }
+      
      
         public int ReadNumSapeur(string login)
         {
