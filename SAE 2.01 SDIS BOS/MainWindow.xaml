@@ -7,7 +7,10 @@
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
         mc:Ignorable="d"
-        Title="SDIS commandé contre le feux" Height="450" Width="800" Closing="mainwindows_Closing">
+        MinHeight="720"
+        MinWidth="1080"
+        Title="SDIS commandé contre le feux" Height="720" Width="1080"
+        Closing="mainwindows_Closing">
     <Window.DataContext>
         <local:ApplicationData x:Name="data"/>
     </Window.DataContext>
@@ -23,7 +26,7 @@
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal">
                 <Image Source="/img/interface/sdis.png" Stretch="Fill" Width="80" Height="80"/>
-                <Label x:Name="lbNumCaserne" Content=""   Background="#FFDDDDDD" FontSize="20" VerticalAlignment="Center" Width="49" FontWeight="Bold" Height="30" Margin="20,0,0,0"/>
+                <Label x:Name="lbNumCaserne" Content=""   Background="#FFDDDDDD" FontSize="20" VerticalAlignment="Center" Width="60" FontWeight="Bold" Height="40" Margin="20,0,0,0"/>
             </StackPanel>
             <Button Content="Compte" Height="30" Width="138" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="2" Click="ButtonConection" Margin="0,0,20,0" />
         </Grid>
@@ -31,14 +34,14 @@
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Consulter" Foreground="Blue" />
+                        <TextBlock Text="Consulter" Foreground="Blue" FontSize="20" />
                     </StackPanel>
                 </TabItem.Header>
 
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="63*" />
-                        <ColumnDefinition Width="17*" />
+                        <ColumnDefinition Width="70*" />
+                        <ColumnDefinition Width="30*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="10*"/>
@@ -52,15 +55,15 @@
                         </Button>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Background="#FF040404" HorizontalAlignment="Center" Grid.Row="1">
-                        <DataGrid x:Name="dgCommande" ItemsSource="{Binding LesCommandes}"  AutoGenerateColumns="False" SelectionChanged="dgCommande_SelectionChanged">
+                        <DataGrid x:Name="dgCommande" ItemsSource="{Binding LesCommandes}"  AutoGenerateColumns="False" SelectionChanged="dgCommande_SelectionChanged" FontSize="20">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="num comande" Binding="{Binding NumCommande}" />
                                 <DataGridTextColumn Header="date commande" Binding="{Binding DateCommande}" />
                                 <DataGridTextColumn Header="date livraison" Binding="{Binding DateLivraison}"/>
-                                
+
                             </DataGrid.Columns>
                         </DataGrid>
-                        <DataGrid ItemsSource="{Binding Materiel}" Margin="50,0,0,0">
+                        <DataGrid ItemsSource="{Binding Materiel}" Margin="50,0,0,0" FontSize="20">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="photo" Binding="{Binding lienPhoto}"/>
                                 <DataGridTextColumn Header="Prix" Binding="{Binding Prix}"/>
@@ -68,15 +71,15 @@
                         </DataGrid>
                     </StackPanel>
 
-                    <ComboBox x:Name="comboBoxFiltreConsulter" Grid.Column="1" Grid.Row="1"  Width="120" Height="19" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <ComboBox x:Name="comboBoxFiltreConsulter" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="10,0,0,8">
                         <ComboBoxItem Content="Tenue"/>
                         <ComboBoxItem Content="Véhicule"/>
                         <ComboBoxItem Content="Accessoires"/>
                     </ComboBox>
                     <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
-                        <Label Content="Renseigner daten de livraison" FontSize="12" FontWeight="Bold" />
-                        <DatePicker x:Name="dtDateLivraison"/>
-                        <Button Width="80" Margin="0,20,0,0" Content="Valider" FontSize="14" FontWeight="Bold" IsDefault="True" />
+                        <Label Content="Renseigner daten de livraison" FontSize="20" FontWeight="Bold" />
+                        <DatePicker x:Name="dtDateLivraison" FontSize="20"/>
+                        <Button Width="80" Margin="0,20,0,0" Content="Valider" FontSize="20" FontWeight="Bold" IsDefault="True" />
                     </StackPanel>
                 </Grid>
 
@@ -84,7 +87,7 @@
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Crée" Foreground="Red"/>
+                        <TextBlock Text="Crée" Foreground="Red" FontSize="20"/>
                     </StackPanel>
                 </TabItem.Header>
 
@@ -99,14 +102,14 @@
                         <RowDefinition Height="8*"/>
                     </Grid.RowDefinitions>
                     <Rectangle Stroke="Gray" Fill="Gray" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
-                    <Label Content="Rechercher matériel" Grid.Column="1" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Top"/>
+                    <Label Content="Rechercher matériel" Grid.Column="1" HorizontalAlignment="Center" FontSize="36" VerticalAlignment="Top" FontWeight="Bold"/>
                     <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0">
-                        <TextBox x:Name="textRechercherCree" TextWrapping="Wrap" Text="Rechercher" Grid.Column="1" Width="200" Height="20" VerticalAlignment="Bottom" Margin="0,0,0,5" FontSize="16"/>
+                        <TextBox x:Name="textRechercherCree" TextWrapping="Wrap" Text="Rechercher" Grid.Column="1" Width="200" Height="30" VerticalAlignment="Bottom" FontSize="18"/>
                         <Button x:Name="butRechercherCree" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                             <Image Source="img\interface\rechercher.png" />
                         </Button>
                     </StackPanel>
-                    <ComboBox x:Name="comboBoxFiltreCree" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Height="19">
+                    <ComboBox x:Name="comboBoxFiltreCree" VerticalAlignment="Center" Height="19" Margin="50,0,50,0">
                         <ComboBoxItem Content="Tenue"/>
                         <ComboBoxItem Content="Véhicule"/>
                         <ComboBoxItem Content="Accessoires"/>
@@ -117,12 +120,18 @@
                             <RowDefinition Height="15*"/>
                             <RowDefinition Height="100*"/>
                         </Grid.RowDefinitions>
-                        <Label Content="Afficher résultats" FontSize="18"/>
-                        <DataGrid x:Name="dataGridmaterielCree" IsReadOnly="True" ItemsSource="{Binding Materiel}" BorderBrush="#000000" BorderThickness="5" FontSize="16" Grid.Row="1" Margin="0,0,0,48">
+                        <Label Content="Afficher résultats" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <DataGrid x:Name="dataGridmaterielCree" IsReadOnly="True" ItemsSource="{Binding Materiel}" BorderBrush="#000000" BorderThickness="5" FontSize="20" Grid.Row="1" Margin="0,0,0,50" HorizontalAlignment="Center">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Width="80" Header="Photo" Binding="{Binding lienPhoto}"/>
-                                <DataGridTextColumn Width="80" Header="Prix Achat"/>
-                                <DataGridTextColumn Width="100" Header="Fournisseur"/>
+                                <DataGridTemplateColumn Width="80" Header="Image" IsReadOnly="True">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image MinWidth="70" MinHeight="70" Source="{Binding lienPhoto}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Width="100" Header="Prix Achat" Binding="{Binding prix}"/>
+                                <DataGridTextColumn Width="120" Header="Fournisseur" Binding="{Binding numFournisseur}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>
@@ -133,8 +142,8 @@
                             <RowDefinition Height="80*"/>
                             <RowDefinition Height="20*"/>
                         </Grid.RowDefinitions>
-                        <Label Content="Matériel commander" FontSize="18" HorizontalAlignment="Center"/>
-                        <DataGrid x:Name="dataGridCommandeCree" ItemsSource="{Binding Materiel}" Grid.Row="1" BorderBrush="#000000" BorderThickness="5" FontSize="16">
+                        <Label Content="Matériel commander" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"/>
+                        <DataGrid x:Name="dataGridCommandeCree" ItemsSource="{Binding Materiel}" Grid.Row="1" BorderBrush="#000000" BorderThickness="5" FontSize="20" HorizontalAlignment="Center">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Width="80" Header="Image" IsReadOnly="True">
                                     <DataGridTemplateColumn.CellTemplate>
@@ -143,9 +152,9 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTextColumn Width="80" Header="Quantité"/>
-                                <DataGridTextColumn Width="80" Header="Prix Achat" Binding="{Binding prix}"/>
-                                <DataGridTextColumn Width="100" Header="Fournisseur" Binding="{Binding numFournisseur}"/>
+                                <DataGridTextColumn Width="100" Header="Quantité"/>
+                                <DataGridTextColumn Width="100" Header="Prix Achat" Binding="{Binding prix}"/>
+                                <DataGridTextColumn Width="120" Header="Fournisseur" Binding="{Binding numFournisseur}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                         <Label x:Name="labelPrixTotalCree" Content="Prix Total : " FontSize="18" FontWeight="Bold" Grid.Row="2"/>
@@ -169,13 +178,13 @@
                     </Grid>
 
                     <StackPanel Grid.RowSpan="2" Grid.Column="2" Grid.Row="1">
-                        <Label Content="Afficher nom materiel" FontSize="18" HorizontalAlignment="Center"/>
+                        <Label Content="Materiel selectioner" FontSize="18" HorizontalAlignment="Center" FontWeight="Bold"/>
                         <Label Content="Quantité : " FontSize="20" HorizontalAlignment="Center"/>
-                        <Slider x:Name="sliderQuantiteCree"/>
+                        <Slider x:Name="sliderQuantiteCree" Margin="50,0,50,0"/>
                         <Label Content="Mode de livraison" FontSize="20" HorizontalAlignment="Center"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <RadioButton x:Name="radioButVoitureCree" Content="Voiture" Margin="0,0,20,0" FontSize="16"/>
-                            <RadioButton x:Name="radioButCamionCree" Content="Camion" FontSize="16"/>
+                            <RadioButton x:Name="radioButVoitureCree" Content="Voiture" Margin="0,0,20,0" FontSize="18"/>
+                            <RadioButton x:Name="radioButCamionCree" Content="Camion" FontSize="18"/>
                         </StackPanel>
                         <Label x:Name="labelPrixmaterielCree" Content="Prix Materiel : 9.99€" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
 
