@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SAE_2._01_SDIS_BOS
 {
-    public class Sapeur:Icrud
+    public class Sapeur
     {
         private int numSapeur;
         private int numCasene;
@@ -84,17 +86,25 @@ namespace SAE_2._01_SDIS_BOS
             throw new NotImplementedException();
         }
 
-        public int Read()
+        public static ObservableCollection<Sapeur> Read(string login)
         {
-            throw new NotImplementedException();
+            ObservableCollection<Sapeur> lesSapeurs = new ObservableCollection<Sapeur>();
+            String sql = $"SELECT NUM_SAPEUR,NUM_CASERNE,LOGIN_SAPEUR,MDP_SAPEUR  FROM Sapeur where LOGIN_SAPEUR ='{login}' ";
+            DataTable dt = DataAccess.Instance.GetData(sql);
+          
+                foreach (DataRow res in dt.Rows)
+                {
+                    Sapeur nouveau = new Sapeur(int.Parse(res["NUM_SAPEUR"].ToString()),
+                    int.Parse(res["NUM_CASERNE"].ToString()), res["LOGIN_SAPEUR"].ToString(), res["MDP_SAPEUR"].ToString());
+                    lesSapeurs.Add(nouveau);
+                }
+
+            return lesSapeurs;
+            
+          
         }
 
         public int Update()
-        {
-            throw new NotImplementedException();
-        }
-
-        int Icrud.ToString()
         {
             throw new NotImplementedException();
         }

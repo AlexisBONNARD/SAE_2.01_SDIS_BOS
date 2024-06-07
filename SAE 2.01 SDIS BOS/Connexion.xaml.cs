@@ -25,6 +25,7 @@ namespace SAE_2._01_SDIS_BOS
     {
         private string login;
         private string password;
+        private ObservableCollection<Sapeur> lesSapeurs = new ObservableCollection<Sapeur>();
 
         public Connexion()
         {
@@ -57,21 +58,33 @@ namespace SAE_2._01_SDIS_BOS
             }
         }
 
+        public ObservableCollection<Sapeur> LesSapeurs
+        {
+            get
+            {
+                return this.lesSapeurs;
+            }
+
+            set
+            {
+                this.lesSapeurs = value;
+            }
+        }
+
         private void Button_Connexion_Valid(object sender, RoutedEventArgs e)
         {
             bool isConnected = false; 
             //this.Fenetre.FenetreAOuvrir = "Stop";
             this.DialogResult = true;
-            data.ConnexionBD(data.Login,tbPassword.Password);
-            if (data.Read(data.Login) ==1) 
-            {
-                ((MainWindow)Application.Current.MainWindow).NumCaserne = data.ReadNumSapeur(data.Login).ToString();
+            DataAccess.Login = tbLogin.Text ;
+            DataAccess.Password = tbPassword.Password;
+
+
+            LesSapeurs = Sapeur.Read(tbLogin.Text);
+                ((MainWindow)Application.Current.MainWindow).NumCaserne = LesSapeurs[0].NumCasene.ToString();
                 ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
-            }
-            else
-            {
-                MessageBox.Show(this, "Erreur", "Vérifiez vos informations.", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

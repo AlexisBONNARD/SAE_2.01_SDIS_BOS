@@ -5,19 +5,22 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Xml.Linq;
 
-namespace P3_BD_PostGRESQL
+namespace SAE_2._01_SDIS_BOS
 {
- 
+
         public class DataAccess
         {
             private static DataAccess instance;
-            private static string strConnexion = "Server=srv-peda-new;port=5433;"
-            + "Database=SDIS;Search Path= SDIS;uid=orandn;password=tq7qbZ;";
+         
+        private static string login;
+          private static string password;
+
             private DataAccess()
             {
-                ConnexionBD();
+            ConnexionBD();
             }
             public static DataAccess Instance
             {
@@ -30,25 +33,54 @@ namespace P3_BD_PostGRESQL
                     return instance;
                 }
             }
-            public NpgsqlConnection? Connexion
+
+        public static string Login
+        {
+            get
+            {
+                return login;
+            }
+
+            set
+            {
+                login = value;
+            }
+        }
+
+        public static string Password
+        {
+            get
+            {
+                return password;
+            }
+
+            set
+            {
+                password = value;
+            }
+        }
+
+        public NpgsqlConnection? Connexion
             {
                 get;
                 set;
             }
-          
- public void ConnexionBD()
+
+      
+
+        public void ConnexionBD()
             {
                 try
                 {
                     Connexion = new NpgsqlConnection();
-                    Connexion.ConnectionString = strConnexion;
-                    Connexion.Open();
+                    Connexion.ConnectionString = $"Server=srv-peda-new; port=5433; Database=SDIS; Search Path = SDIS; uid={Login};password={Password}";
+                Connexion.Open();
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("pb de connexion : " + e);
-                    // juste pour le debug : à transformer en MsgBox 
-                }
+                MessageBox.Show("Erreur", e.ToString() , MessageBoxButton.OK, MessageBoxImage.Error);
+                // juste pour le debug : à transformer en MsgBox 
+            }
             }
             public void DeconnexionBD()
             {
