@@ -143,18 +143,18 @@
                             <RowDefinition Height="20*"/>
                         </Grid.RowDefinitions>
                         <Label Content="Matériel commander" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"/>
-                        <DataGrid x:Name="dataGridCommandeCree" ItemsSource="{Binding Materiel}" Grid.Row="1" BorderBrush="#000000" BorderThickness="5" FontSize="20" HorizontalAlignment="Center">
+                        <DataGrid x:Name="dataGridCommandeCree" ItemsSource="{Binding LesMatériel}"  AutoGenerateColumns="False" Grid.Row="1" BorderBrush="#000000" BorderThickness="5" FontSize="20" HorizontalAlignment="Center">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Width="80" Header="Image" IsReadOnly="True">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Image MinWidth="70" MinHeight="70" Source="{Binding lienPhoto}"/>
+                                            <Image MinWidth="70" MinHeight="70" Source="{Binding LienPhoto}"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
                                 <DataGridTextColumn Width="100" Header="Quantité"/>
-                                <DataGridTextColumn Width="100" Header="Prix Achat" Binding="{Binding prix}"/>
-                                <DataGridTextColumn Width="120" Header="Fournisseur" Binding="{Binding numFournisseur}"/>
+                                <DataGridTextColumn Width="100" Header="Prix Achat" Binding="{Binding Prix}"/>
+                                <DataGridTextColumn Width="120" Header="Fournisseur" Binding="{Binding NumFournisseur}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                         <Label x:Name="labelPrixTotalCree" Content="Prix Total : " FontSize="18" FontWeight="Bold" Grid.Row="2"/>

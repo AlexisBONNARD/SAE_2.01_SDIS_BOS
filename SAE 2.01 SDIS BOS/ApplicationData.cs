@@ -109,6 +109,7 @@ namespace SAE_2._01_SDIS_BOS
 
             LesSapeurs = Sapeur.Read();
             LesCommandes = Commande.Read();
+            LesMatériel = Materiel.Read();
         }
 
 

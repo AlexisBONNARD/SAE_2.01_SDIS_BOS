@@ -120,21 +120,10 @@ namespace SAE_2._01_SDIS_BOS
             }
         }
 
-        public static readonly ObservableCollection<Materiel> Create()
+        public int Create()
         {
-            //apeur sapeur = Sapeur.Read()[0];
-            ObservableCollection<Materiel> lesMateriels = new ObservableCollection<Materiel>();
-            String sql = $"SELECT NUM_MATERIEL,NUM_TRANSPORT,NUM_CASERNE,DATE_COMMANDE,DATE_LIVRAISON FROM COMMANDE WHERE NUM_CASERNE = {sapeur.NumCasene} ";
-            DataTable dt = DataAccess.Instance.GetData(sql);
-
-            foreach (DataRow res in dt.Rows)
-            {
-                Commande nouveau = new Commande(int.Parse(res["NUM_COMMANDE"].ToString()),
-                int.Parse(res["NUM_TRANSPORT"].ToString()), int.Parse(res["NUM_CASERNE"].ToString()), DateTime.Parse(res["DATE_LIVRAISON"].ToString()), DateTime.Parse(res["DATE_LIVRAISON"].ToString()));
-                lesMateriels.Add(nouveau);
-            }
-
-            return lesMateriels;
+            throw new NotImplementedException();
+           
         }
 
         public int Delete()
@@ -142,9 +131,20 @@ namespace SAE_2._01_SDIS_BOS
             throw new NotImplementedException();
         }
 
-        public int Read()
+        public static ObservableCollection<Materiel> Read()
         {
-            throw new NotImplementedException();
+            ObservableCollection<Materiel> lesMateriels = new ObservableCollection<Materiel>();
+            String sql = $"SELECT NUM_MATERIEL,NUM_FOURNISSEUR,CODE_TYPE,DESCRIPTION_MATERIEL,LIEN_PHOTO,MARQUE,,DESCRIPTION,PRIX FROM COMMANDE";
+            DataTable dt = DataAccess.Instance.GetData(sql);
+
+            foreach (DataRow res in dt.Rows)
+            {
+                Materiel nouveau = new Materiel(int.Parse(res["NUM_MATERIEL"].ToString()),
+                int.Parse(res["NUM_FOURNISSEUR"].ToString()), res["CODE_TYPE"].ToString(), res["DESCRIPTION_MATERIEL"].ToString(), res["LIEN_PHOTO"].ToString(), res["DESCRIPTION"].ToString(), Double.Parse(res["PRIX"].ToString()));
+                lesMateriels.Add(nouveau);
+            }
+
+            return lesMateriels;
         }
 
         public int Update()
@@ -152,9 +152,6 @@ namespace SAE_2._01_SDIS_BOS
             throw new NotImplementedException();
         }
 
-        int Icrud.ToString()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
