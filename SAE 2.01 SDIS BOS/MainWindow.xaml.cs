@@ -63,6 +63,7 @@ namespace SAE_2._01_SDIS_BOS
             Sapeur.Read();
             Commande.Read();
             dgCommande.Items.Filter = ContientMotClef;
+            dataGridmaterielCree.Items.Filter = ContientMotClefMateriel;
 
         }
         private void ButtonConection(object sender, RoutedEventArgs e)
@@ -82,6 +83,17 @@ namespace SAE_2._01_SDIS_BOS
                 return (uneCommande.NumCommande.ToString().StartsWith(textRechercherConsulter.Text, StringComparison.OrdinalIgnoreCase) ||
                     uneCommande.NumCommande.ToString().StartsWith(textRechercherConsulter.Text, StringComparison.OrdinalIgnoreCase));
         }
+        private bool ContientMotClefMateriel(object obj)
+        {
+            Materiel unMateriel = obj as Materiel;
+            if (String.IsNullOrEmpty(textRechercherCree.Text))
+                return true;
+            else
+                return (unMateriel.NomFournisseur.StartsWith(textRechercherCree.Text, StringComparison.OrdinalIgnoreCase) ||
+                    unMateriel.NomFournisseur.StartsWith(textRechercherCree.Text, StringComparison.OrdinalIgnoreCase));
+        }
+
+
 
         public void OuvertureFenetre()
         {
@@ -147,6 +159,11 @@ namespace SAE_2._01_SDIS_BOS
         {
             DataAccess.Instance.DeconnexionBD();
             Application.Current.Shutdown();
+        }
+
+        private void textRechercherCree_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(dataGridmaterielCree.ItemsSource).Refresh();
         }
     }
 }

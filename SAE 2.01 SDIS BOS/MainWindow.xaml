@@ -104,7 +104,7 @@
                     <Rectangle Stroke="Gray" Fill="Gray" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
                     <Label Content="Rechercher matériel" Grid.Column="1" HorizontalAlignment="Center" FontSize="36" VerticalAlignment="Top" FontWeight="Bold"/>
                     <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0">
-                        <TextBox x:Name="textRechercherCree" TextWrapping="Wrap" Text="Rechercher" Grid.Column="1" Width="200" Height="30" VerticalAlignment="Bottom" FontSize="18"/>
+                        <TextBox x:Name="textRechercherCree" TextWrapping="Wrap" Text="" Grid.Column="1" Width="200" Height="30" VerticalAlignment="Bottom" FontSize="18" TextChanged="textRechercherCree_TextChanged"/>
                         <Button x:Name="butRechercherCree" Width="30" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                             <Image Source="img\interface\rechercher.png" />
                         </Button>
