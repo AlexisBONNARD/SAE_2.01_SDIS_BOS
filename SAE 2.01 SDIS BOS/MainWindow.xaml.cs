@@ -24,7 +24,9 @@ namespace SAE_2._01_SDIS_BOS
     {
         // string pour les ouverture des fenétre
         private String fenetreAOuvrir;
+        private int quantite;
         public String FenetreAOuvrir
+        
         {
             get { return fenetreAOuvrir; }
             set
@@ -64,6 +66,7 @@ namespace SAE_2._01_SDIS_BOS
             Commande.Read();
             dgCommande.Items.Filter = ContientMotClef;
             dataGridmaterielCree.Items.Filter = ContientMotClefMateriel;
+            
 
         }
         private void ButtonConection(object sender, RoutedEventArgs e)
@@ -164,6 +167,30 @@ namespace SAE_2._01_SDIS_BOS
         private void textRechercherCree_TextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(dataGridmaterielCree.ItemsSource).Refresh();
+        }
+
+       
+        private void UpdatePrixLabel()
+        {
+            if (dataGridmaterielCree.SelectedItem != null)
+            {
+                Materiel commande = (Materiel)dataGridmaterielCree.SelectedItem;
+                labelPrixmaterielCree.Content = $"Prix Materiel : {commande.Prix * quantite}€";
+            }
+        }
+
+
+
+        private void sliderQuantiteCree_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            quantite = (int)sliderQuantiteCree.Value;
+            UpdatePrixLabel();
+
+        }
+
+        private void dataGridmaterielCree_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdatePrixLabel();
         }
     }
 }
