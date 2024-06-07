@@ -34,6 +34,22 @@ namespace SAE_2._01_SDIS_BOS
                 fenetreAOuvrir = value;
             }
         }
+
+        public string NumCaserne
+        {
+            get
+            {
+                return this.numCaserne;
+            }
+
+            set
+            {
+                this.numCaserne = value;
+            }
+        }
+
+        private String numCaserne;
+        
         public bool quitter = false;
         public bool jouer = false;
 
@@ -43,7 +59,9 @@ namespace SAE_2._01_SDIS_BOS
             FenetreAOuvrir = "Connexion";
             OuvertureFenetre();
             InitializeComponent();
-            
+            lbNumCaserne.Content = $"N° {numCaserne}";
+
+
         }
         private void ButtonConection(object sender, RoutedEventArgs e)
         {
@@ -51,6 +69,7 @@ namespace SAE_2._01_SDIS_BOS
             lbNumCaserne.Content = data.LesSapeurs[0].NumSapeur;
             FenetreAOuvrir = "Connexion";
             OuvertureFenetre();
+            lbNumCaserne.Content = $"N° {numCaserne}";
 
         }
 

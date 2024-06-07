@@ -65,6 +65,7 @@ namespace SAE_2._01_SDIS_BOS
             data.ConnexionBD(data.Login,tbPassword.Password);
             if (data.Read(data.Login) ==1) 
             {
+                ((MainWindow)Application.Current.MainWindow).NumCaserne = data.ReadNumSapeur(data.Login).ToString();
                 ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
             }
             else
