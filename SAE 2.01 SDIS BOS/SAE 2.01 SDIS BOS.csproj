@@ -23,6 +23,14 @@
     <None Remove="img\modifier.png" />
     <None Remove="img\moins.png" />
     <None Remove="img\plus.png" />
+    <None Remove="img\produit\999_0\Produit\lance-500L.png" />
+    <None Remove="img\produit\999_0\Produit\lance-800L.png" />
+    <None Remove="img\produit\999_0\Produit\tuyau_flexible.png" />
+    <None Remove="img\produit\999_0\Produit\tuyau_sec.png" />
+    <None Remove="img\produit\999_0\Vetement\Casque.png" />
+    <None Remove="img\produit\999_1\Commandement.png" />
+    <None Remove="img\produit\999_1\Grande_échel.png" />
+    <None Remove="img\produit\999_1\Plongé.png" />
     <None Remove="img\rechercher.png" />
     <None Remove="img\sdis.png" />
     <None Remove="img\supprimer.png" />
@@ -61,14 +69,33 @@
     <Resource Include="img\interface\valider.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="img\produit\999_0\Produit\lance-500L.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\produit\999_0\Produit\lance-800L.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\produit\999_0\Produit\tuyau_flexible.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\produit\999_0\Produit\tuyau_sec.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\produit\999_0\Vetement\Casque.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="img\produit\999_0\Vetement\t-shirt.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="img\produit\999_0\Produit\" />
-    <Folder Include="img\produit\999_1\" />
+    <Resource Include="img\produit\999_1\Commandement.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\produit\999_1\Grande_échel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\produit\999_1\Plongé.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
