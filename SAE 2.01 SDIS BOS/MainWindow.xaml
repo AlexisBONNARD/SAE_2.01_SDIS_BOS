@@ -134,7 +134,7 @@
                             <RowDefinition Height="20*"/>
                         </Grid.RowDefinitions>
                         <Label Content="Matériel commander" FontSize="18" HorizontalAlignment="Center"/>
-                        <DataGrid x:Name="dataGridCommandeCree" ItemsSource="{Binding Materiel}" Grid.Row="1" BorderBrush="#000000" BorderThickness="5" FontSize="16">
+                        <DataGrid x:Name="dataGridCommandeCree" ItemsSource="{Binding Materiel}" Grid.Row="1" BorderBrush="#000000" BorderThickness="5" FontSize="16"  AutoGenerateColumns="False">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Width="80" Header="Image" IsReadOnly="True">
                                     <DataGridTemplateColumn.CellTemplate>

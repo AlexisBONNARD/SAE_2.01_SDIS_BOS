@@ -110,29 +110,9 @@ namespace SAE_2._01_SDIS_BOS
             LesSapeurs = Sapeur.Read();
             LesCommandes = Commande.Read();
         }
-      
-     
-        public int ReadNumSapeur(string login)
-        {
-            int id = 0;
-            String sql = $"SELECT NUM_CASERNE FROM Sapeur where LOGIN_SAPEUR ='{login}' ";
-            try
-            {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(sql, Connexion);
-                DataTable dataTable = new DataTable();
-                dataAdapter.Fill(dataTable);
-                foreach (DataRow res in dataTable.Rows)
-                {
 
 
-                    id = int.Parse(res["NUM_CASERNE"].ToString());
-                }
 
-                return id;
-            }
-            catch (NpgsqlException e)
-            { Console.WriteLine("pb de requete : " + e); return 0; }
-        }
         /*
         public int ReadMateriel()
         {
@@ -157,56 +137,6 @@ namespace SAE_2._01_SDIS_BOS
         
         }
         */
-        public int ReadCommande(int numcaserne)
-        {
-            String sql = $"SELECT NUM_COMMANDE,NUM_TRANSPORT,NUM_CASERNE,DATE_COMMANDE,DATE_LIVRAISON FROM COMMANDE WHERE NUM_CASERNE = {numcaserne} ";
-            try
-            {
-                Connexion = new NpgsqlConnection();
-                Connexion.ConnectionString = $"Server=srv-peda-new; port=5433; Database=SDIS; Search Path = SDIS; uid=selmaner;password=ip1PIB";
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(sql, Connexion);
-                DataTable dataTable = new DataTable();
-                dataAdapter.Fill(dataTable);
-                foreach (DataRow res in dataTable.Rows)
-                {
 
-                    Commande nouveau = new Commande(int.Parse(res["NUM_COMMANDE"].ToString()),
-                    int.Parse(res["NUM_TRANSPORT"].ToString()), int.Parse(res["NUM_CASERNE"].ToString()), DateTime.Parse(res["DATE_COMMANDE"].ToString()), DateTime.Parse(res["DATE_LIVRAISON"].ToString()));
-                    LesCommandes.Add(nouveau);
-                }
-
-                return dataTable.Rows.Count;
-            }
-            catch (NpgsqlException e)
-            { Console.WriteLine("pb de requete : " + e); return 0; }
-
-        }
-
-        public int Create()
-        {
-            throw new  NotImplementedException();
-
-
-        }
-        public int Update()
-        {
-            throw new NotImplementedException();
-        }
-        
-
-        public int Delete()
-        {
-           throw new NotImplementedException();
-        }
-
-        public void DeconnexionBD()
-        {
-            try
-            {
-                Connexion.Close();
-            }
-            catch (Exception e)
-            { Console.WriteLine("pb à la déconnexion : " + e); }
-        }
     }
 }
