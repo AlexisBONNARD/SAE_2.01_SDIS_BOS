@@ -78,7 +78,7 @@ namespace SAE_2._01_SDIS_BOS
                 }
                 catch (Exception e)
                 {
-                MessageBox.Show("Erreur", e.ToString() , MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Impossible de se connecter à la base de données Veuillez verifier vos identifiant", "Erreur" , MessageBoxButton.OK, MessageBoxImage.Error);
                 // juste pour le debug : à transformer en MsgBox 
             }
             }
@@ -91,6 +91,25 @@ namespace SAE_2._01_SDIS_BOS
                 catch (Exception e)
                 { Console.WriteLine("pb à la déconnexion : " + e); }
             }
+          public bool TestConnection()
+        {
+            bool isConnected = false;
+            try
+            {
+                using (NpgsqlConnection testConnexion = new NpgsqlConnection(Connexion.ConnectionString))
+                {
+                    testConnexion.Open();
+                    testConnexion.Close();
+                }
+                isConnected = true;
+                return isConnected;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Connection verification failed: " + e);
+                return isConnected;
+            }
+        }
 
             public DataTable GetData(string selectSQL)
             {

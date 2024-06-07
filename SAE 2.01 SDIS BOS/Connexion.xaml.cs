@@ -41,6 +41,8 @@ namespace SAE_2._01_SDIS_BOS
 
             set
             {
+                if (String.IsNullOrEmpty(value))
+                    throw new ArgumentNullException("Veuillez renseigner le nom ! ");
                 this.login = value;
             }
         }
@@ -54,6 +56,8 @@ namespace SAE_2._01_SDIS_BOS
 
             set
             {
+                if (String.IsNullOrEmpty(value))
+                    throw new ArgumentNullException("Veuillez renseigner le nom ! ");
                 this.password = value;
             }
         }
@@ -78,11 +82,10 @@ namespace SAE_2._01_SDIS_BOS
             this.DialogResult = true;
             DataAccess.Login = tbLogin.Text ;
             DataAccess.Password = tbPassword.Password;
-
             DataAccess.Instance.ConnexionBD();
             LesSapeurs = Sapeur.Read();
-                ((MainWindow)Application.Current.MainWindow).NumCaserne = LesSapeurs[0].NumCasene.ToString();
-                ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
+            ((MainWindow)Application.Current.MainWindow).NumCaserne = LesSapeurs[0].NumCasene.ToString();
+            ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
             
 
         }
