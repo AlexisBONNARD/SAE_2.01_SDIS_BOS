@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
@@ -25,6 +26,8 @@ namespace SAE_2._01_SDIS_BOS
         // string pour les ouverture des fenétre
         private String fenetreAOuvrir;
         private int quantite;
+        private double prixAchat;
+        private int quantiteAchat;
         public String FenetreAOuvrir
         
         {
@@ -47,6 +50,32 @@ namespace SAE_2._01_SDIS_BOS
             set
             {
                 this.numCaserne = value;
+            }
+        }
+
+        public double PrixAchat
+        {
+            get
+            {
+                return this.prixAchat;
+            }
+
+            set
+            {
+                this.prixAchat = value;
+            }
+        }
+
+        public int QuantiteAchat
+        {
+            get
+            {
+                return this.quantiteAchat;
+            }
+
+            set
+            {
+                this.quantiteAchat = value;
             }
         }
 
@@ -172,10 +201,14 @@ namespace SAE_2._01_SDIS_BOS
        
         private void UpdatePrixLabel()
         {
+           
             if (dataGridmaterielCree.SelectedItem != null)
             {
+               
                 Materiel commande = (Materiel)dataGridmaterielCree.SelectedItem;
-                labelPrixmaterielCree.Content = $"Prix Materiel : {commande.Prix * quantite}€";
+                PrixAchat = commande.Prix * QuantiteAchat;
+
+                labelPrixmaterielCree.Content = $"Prix Materiel : {PrixAchat}€";
             }
         }
 
@@ -183,7 +216,7 @@ namespace SAE_2._01_SDIS_BOS
 
         private void sliderQuantiteCree_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            quantite = (int)sliderQuantiteCree.Value;
+            QuantiteAchat = (int)sliderQuantiteCree.Value;
             UpdatePrixLabel();
 
         }
@@ -191,6 +224,29 @@ namespace SAE_2._01_SDIS_BOS
         private void dataGridmaterielCree_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdatePrixLabel();
+        }
+
+        private void butAjouterCree_Click(object sender, RoutedEventArgs e)
+        {
+            string modeLivraison = "";
+
+            MessageBoxResult res =   MessageBox.Show(this,"Information", "Voulez vous confimer votre commande ?", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+            if(radioButCamionCree.IsChecked == true)
+            {
+                modeLivraison = "Camion";
+            }
+            else if (radioButCamionCree.IsChecked == true)
+            {
+                modeLivraison = "Voiture";
+            }
+
+            if(res == MessageBoxResult.OK)
+            {
+                Materiel materiel = (Materiel)dataGridCommandeCree.SelectedItem;
+                Panier panier = new Panier(materiel.LienPhoto, QuantiteAchat,prixAchat, materiel.NomFournisseur,modeLivraison);
+                data.LePanier.Add(panier);
+
+            }
         }
     }
 }

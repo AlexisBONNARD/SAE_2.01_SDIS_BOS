@@ -22,6 +22,7 @@ namespace SAE_2._01_SDIS_BOS
         private ObservableCollection<Sapeur> lesSapeurs = new ObservableCollection<Sapeur>();
         private ObservableCollection<Materiel> lesMatériel = new ObservableCollection<Materiel>();
         private ObservableCollection<Commande> lesCommandes = new ObservableCollection<Commande>();
+        private ObservableCollection<Panier> lePanier= new ObservableCollection<Panier>();
         private NpgsqlConnection connexion = null;   // futur lien à la BD
         private string login;
         private string password;
@@ -105,6 +106,19 @@ namespace SAE_2._01_SDIS_BOS
             }
         }
 
+        public ObservableCollection<Panier> LePanier
+        {
+            get
+            {
+                return this.lePanier;
+            }
+
+            set
+            {
+                this.lePanier = value;
+            }
+        }
+
         public ApplicationData()
         {
             if (((MainWindow)Application.Current.MainWindow).FenetreAOuvrir == "Jeux")
@@ -112,6 +126,7 @@ namespace SAE_2._01_SDIS_BOS
                 LesSapeurs = Sapeur.Read();
                 LesCommandes = Commande.Read();
                 LesMatériel = Materiel.Read();
+                
             }
 
         }
