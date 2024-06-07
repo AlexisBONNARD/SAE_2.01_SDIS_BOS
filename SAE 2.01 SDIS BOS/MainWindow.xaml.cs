@@ -60,9 +60,15 @@ namespace SAE_2._01_SDIS_BOS
             OuvertureFenetre();
             InitializeComponent();
             lbNumCaserne.Content = $"N° {numCaserne}";
-            data.ReadCommande(1);
+            Sapeur.Read();
+            Commande.Read();
+            if (dgCommande.SelectedItem != null)
+            {
+                Commande commande = (Commande)dgCommande.SelectedItem;
 
+                dtDateLivraison.SelectedDate = commande.DateLivraison;
 
+            }
         }
         private void ButtonConection(object sender, RoutedEventArgs e)
         {

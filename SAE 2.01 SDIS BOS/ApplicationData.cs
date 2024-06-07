@@ -107,8 +107,8 @@ namespace SAE_2._01_SDIS_BOS
         public ApplicationData()
         {
 
-            //this.ConnexionBD();
-           // this.Read();
+            LesSapeurs = Sapeur.Read();
+            LesCommandes = Commande.Read();
         }
         public void ConnexionBD(string login ,string password)
         {

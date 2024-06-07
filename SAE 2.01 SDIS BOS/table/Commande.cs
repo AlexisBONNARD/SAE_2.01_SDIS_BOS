@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SAE_2._01_SDIS_BOS
 {
-    public class Commande:Icrud
+    public class Commande
     {
         private int numCommande;
         private int numTransport;
@@ -98,9 +100,21 @@ namespace SAE_2._01_SDIS_BOS
             throw new NotImplementedException();
         }
 
-        public int Read()
+        public static ObservableCollection<Commande> Read()
         {
-            throw new NotImplementedException();
+            Sapeur sapeur = Sapeur.Read()[0];
+            ObservableCollection<Commande> lesCommandes = new ObservableCollection<Commande>();
+            String sql = $"SELECT NUM_COMMANDE,NUM_TRANSPORT,NUM_CASERNE,DATE_COMMANDE,DATE_LIVRAISON FROM COMMANDE WHERE NUM_CASERNE = {sapeur.NumCasene} ";
+            DataTable dt = DataAccess.Instance.GetData(sql);
+
+            foreach (DataRow res in dt.Rows)
+            {
+                Commande nouveau = new Commande(int.Parse(res["NUM_COMMANDE"].ToString()),
+                int.Parse(res["NUM_TRANSPORT"].ToString()), int.Parse(res["NUM_CASERNE"].ToString()), DateTime.Parse(res["DATE_LIVRAISON"].ToString()), DateTime.Parse(res["DATE_LIVRAISON"].ToString()));
+                lesCommandes.Add(nouveau);
+            }
+
+            return lesCommandes;
         }
 
         public int Update()
@@ -108,9 +122,7 @@ namespace SAE_2._01_SDIS_BOS
             throw new NotImplementedException();
         }
 
-        int Icrud.ToString()
-        {
-            throw new NotImplementedException();
-        }
+       
+
     }
 }
