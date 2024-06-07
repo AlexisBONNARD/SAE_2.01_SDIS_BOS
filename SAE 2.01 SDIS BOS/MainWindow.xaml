@@ -51,21 +51,24 @@
                             <Image Source="img\interface\rechercher.png" />
                         </Button>
                     </StackPanel>
-                    <DataGrid HorizontalAlignment="Center" BorderBrush="#FF040404" BorderThickness="5" FontSize="16" Grid.Row="1">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="URL Photo"/>
-                            <DataGridTextColumn Header="Nom Matériel"/>
-                            <DataGridTextColumn Header="Marque"/>
-                            <DataGridTextColumn Header="Description"/>
-                            <DataGridTextColumn Header="Prix Achat"/>
-                            <DataGridTextColumn Header="Type Produit"/>
-                            <DataGridTextColumn Header="Catégorie"/>
-                            <DataGridTextColumn Header="Taille"/>
-                            <DataGridTextColumn Header="Couleur"/>
-                            <DataGridTextColumn Header="matière"/>
-                            <DataGridTextColumn Header="Fournisseur"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                    <StackPanel Orientation="Horizontal" Background="#FF040404" HorizontalAlignment="Center" Grid.Row="1">
+                        <DataGrid ItemsSource="{Binding Materiel}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="photo" Binding="{Binding lienPhoto}"/>
+                                <DataGridTextColumn Header="Prix" Binding="{Binding Prix}"/>
+                                <DataGridTextColumn Header="Type Produit" Binding="{Binding codeType}"/>
+                                <DataGridTextColumn Header="Catégorie" Binding="{Binding lienPhoto}"/>
+                                <DataGridTextColumn Header="Fournisseur" Binding="{Binding lienPhoto}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <DataGrid ItemsSource="{Binding Commande}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="date commande" Binding="{Binding dateCommande}"/>
+                                <DataGridTextColumn Header="date livraison" Binding="{Binding dateLivraison}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                    
                     <ComboBox x:Name="comboBoxFiltreConsulter" Grid.Column="1" Grid.Row="1"  Width="120" Height="19" HorizontalAlignment="Center" VerticalAlignment="Top">
                         <ComboBoxItem Content="Tenue"/>
                         <ComboBoxItem Content="Lampe"/>
