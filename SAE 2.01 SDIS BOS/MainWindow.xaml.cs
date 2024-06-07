@@ -67,7 +67,6 @@ namespace SAE_2._01_SDIS_BOS
         private void ButtonConection(object sender, RoutedEventArgs e)
         {
             //this.Fenetre.FenetreAOuvrir = "Stop";
-            lbNumCaserne.Content = data.LesSapeurs[0].NumSapeur;
             FenetreAOuvrir = "Connexion";
             OuvertureFenetre();
             lbNumCaserne.Content = $"N° {numCaserne}";
