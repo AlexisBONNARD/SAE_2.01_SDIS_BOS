@@ -145,13 +145,38 @@ namespace SAE_2._01_SDIS_BOS
                 foreach (DataRow res in dataTable.Rows)
                 {
 
-                    id = int.Parse(res["NUM_CASERNE"].ToString());
+                    Sapeur nouveau = new Sapeur(int.Parse(res["NUM_SAPEUR"].ToString()),
+                    int.Parse(res["NUM_CASERNE"].ToString()), res["LOGIN_SAPEUR"].ToString(), res["MDP_SAPEUR"].ToString());
+                    LesSapeurs.Add(nouveau);
                 }
 
                 return id;
             }
             catch (NpgsqlException e)
             { Console.WriteLine("pb de requete : " + e); return 0; }
+        }
+        /*
+        public int ReadMateriel()
+        {
+            String sql = $"SELECT NUM_MATERIEL,NUM_FOURNISSEUR, CODE_TYPE,DESCRIPTION_MATERIEL, ";
+            try
+            {
+                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(sql, Connexion);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                foreach (DataRow res in dataTable.Rows)
+                {
+
+                    Materiel nouveau = new Materiel(int.Parse(res["NUM_SAPEUR"].ToString()),
+                    int.Parse(res["NUM_CASERNE"].ToString()), res["LOGIN_SAPEUR"].ToString(), res["MDP_SAPEUR"].ToString());
+                    LesMatériel.Add(nouveau);
+                }
+
+                return dataTable.Rows.Count;
+            }
+            catch (NpgsqlException e)
+            { Console.WriteLine("pb de requete : " + e); return 0; }
+        */
         }
 
         public int Create()

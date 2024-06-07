@@ -16,6 +16,17 @@ namespace SAE_2._01_SDIS_BOS
         private string description;
         private double prix;
 
+        public Materiel(int numMateriel, int numFournisseur, string codeType, string descriptionMateriel, string lienPhoto, string description, double prix)
+        {
+            this.NumMateriel = numMateriel;
+            this.NumFournisseur = numFournisseur;
+            this.CodeType = codeType;
+            this.DescriptionMateriel = descriptionMateriel;
+            this.LienPhoto = lienPhoto;
+            this.Description = description;
+            this.Prix = prix;
+        }
+
         public int NumMateriel
         {
             get
