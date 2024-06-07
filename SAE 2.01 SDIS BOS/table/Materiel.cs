@@ -17,8 +17,9 @@ namespace SAE_2._01_SDIS_BOS
         private string lienPhoto;
         private string description;
         private double prix;
+        private string nomFournisseur;
 
-        public Materiel(int numMateriel, int numFournisseur, string codeType, string descriptionMateriel, string lienPhoto, string description, double prix)
+        public Materiel(int numMateriel, int numFournisseur, string codeType, string descriptionMateriel, string lienPhoto, string description, double prix, string nomFournisseur)
         {
             this.NumMateriel = numMateriel;
             this.NumFournisseur = numFournisseur;
@@ -27,6 +28,7 @@ namespace SAE_2._01_SDIS_BOS
             this.LienPhoto = lienPhoto;
             this.Description = description;
             this.Prix = prix;
+            this.NomFournisseur = nomFournisseur;
         }
 
         public int NumMateriel
@@ -120,6 +122,19 @@ namespace SAE_2._01_SDIS_BOS
             }
         }
 
+        public string NomFournisseur
+        {
+            get
+            {
+                return this.nomFournisseur;
+            }
+
+            set
+            {
+                this.nomFournisseur = value;
+            }
+        }
+
         public int Create()
         {
             throw new NotImplementedException();
@@ -134,13 +149,13 @@ namespace SAE_2._01_SDIS_BOS
         public static ObservableCollection<Materiel> Read()
         {
             ObservableCollection<Materiel> lesMateriels = new ObservableCollection<Materiel>();
-            String sql = $"SELECT NUM_MATERIEL,NUM_FOURNISSEUR,CODE_TYPE,DESCRIPTION_MATERIEL,LIEN_PHOTO,MARQUE,DESCRIPTION,PRIX FROM MATERIEL";
+            String sql = $"SELECT NUM_MATERIEL,m.NUM_FOURNISSEUR,CODE_TYPE,DESCRIPTION_MATERIEL,LIEN_PHOTO,MARQUE,DESCRIPTION,PRIX,NOM_FOURNISSEUR FROM MATERIEL m JOIN FOURNISSEUR f on f.NUM_FOURNISSEUR = m.NUM_FOURNISSEUR";
             DataTable dt = DataAccess.Instance.GetData(sql);
 
             foreach (DataRow res in dt.Rows)
             {
                 Materiel nouveau = new Materiel(int.Parse(res["NUM_MATERIEL"].ToString()),
-                int.Parse(res["NUM_FOURNISSEUR"].ToString()), res["CODE_TYPE"].ToString(), res["DESCRIPTION_MATERIEL"].ToString(), res["LIEN_PHOTO"].ToString(), res["DESCRIPTION"].ToString(), Double.Parse(res["PRIX"].ToString()));
+                int.Parse(res["NUM_FOURNISSEUR"].ToString()), res["CODE_TYPE"].ToString(), res["DESCRIPTION_MATERIEL"].ToString(), res["LIEN_PHOTO"].ToString(), res["DESCRIPTION"].ToString(), Double.Parse(res["PRIX"].ToString()), res["NOM_FOURNISSEUR"].ToString());
                 lesMateriels.Add(nouveau);
             }
 

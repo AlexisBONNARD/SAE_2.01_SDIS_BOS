@@ -11,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SAE_2._01_SDIS_BOS
 {
@@ -106,38 +107,18 @@ namespace SAE_2._01_SDIS_BOS
 
         public ApplicationData()
         {
-
-            LesSapeurs = Sapeur.Read();
-            LesCommandes = Commande.Read();
-            LesMatériel = Materiel.Read();
-        }
-
-
-
-        /*
-        public int ReadMateriel()
-        {
-            String sql = $"SELECT NUM_MATERIEL,NUM_FOURNISSEUR, CODE_TYPE,DESCRIPTION_MATERIEL, ";
-            try
+            if (((MainWindow)Application.Current.MainWindow).FenetreAOuvrir == "Jeux")
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(sql, Connexion);
-                DataTable dataTable = new DataTable();
-                dataAdapter.Fill(dataTable);
-                foreach (DataRow res in dataTable.Rows)
-                {
-
-                    Materiel nouveau = new Materiel(int.Parse(res["NUM_SAPEUR"].ToString()),
-                    int.Parse(res["NUM_CASERNE"].ToString()), res["LOGIN_SAPEUR"].ToString(), res["MDP_SAPEUR"].ToString());
-                    LesMatériel.Add(nouveau);
-                }
-
-                return dataTable.Rows.Count;
+                LesSapeurs = Sapeur.Read();
+                LesCommandes = Commande.Read();
+                LesMatériel = Materiel.Read();
             }
-            catch (NpgsqlException e)
-            { Console.WriteLine("pb de requete : " + e); return 0; }
-        
+
         }
-        */
+
+
+
+       
 
     }
 }
