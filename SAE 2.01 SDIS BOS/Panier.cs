@@ -8,35 +8,31 @@ namespace SAE_2._01_SDIS_BOS
 {
     public class Panier
     {
-        private string lienImage;
-        private int quantite;
-        private double prixAchat;
-        private string nomFournisseur;
-        private string modeLivraison;
+        private Materiel unMateriel;
+        private double quantite;
+        private int numtransport;
 
-        public Panier(string lienImage, int quantite, double prixAchat, string nomFournisseur, string modeLivraison)
+        public Panier(Materiel unMateriel, double quantite, int numtransport)
         {
-            this.LienImage = lienImage;
+            this.UnMateriel = unMateriel;
             this.Quantite = quantite;
-            this.PrixAchat = prixAchat;
-            this.NomFournisseur = nomFournisseur;
-            this.ModeLivraison = modeLivraison;
+            this.Numtransport = numtransport;
         }
 
-        public string LienImage
+        public Materiel UnMateriel
         {
             get
             {
-                return this.lienImage;
+                return this.unMateriel;
             }
 
             set
             {
-                this.lienImage = value;
+                this.unMateriel = value;
             }
         }
 
-        public int Quantite
+        public double Quantite
         {
             get
             {
@@ -49,42 +45,16 @@ namespace SAE_2._01_SDIS_BOS
             }
         }
 
-        public double PrixAchat
+        public int Numtransport
         {
             get
             {
-                return this.prixAchat;
+                return this.numtransport;
             }
 
             set
             {
-                this.prixAchat = value;
-            }
-        }
-
-        public string NomFournisseur
-        {
-            get
-            {
-                return this.nomFournisseur;
-            }
-
-            set
-            {
-                this.nomFournisseur = value;
-            }
-        }
-
-        public string ModeLivraison
-        {
-            get
-            {
-                return this.modeLivraison;
-            }
-
-            set
-            {
-                this.modeLivraison = value;
+                this.numtransport = value;
             }
         }
     }

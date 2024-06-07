@@ -24,6 +24,13 @@ namespace SAE_2._01_SDIS_BOS
             this.DateCommande = dateCommande;
             this.DateLivraison = dateLivraison;
         }
+        public Commande(int numCommande, int numTransport, int numCaserne, DateTime dateCommande)
+        {
+            this.NumCommande = numCommande;
+            this.NumTransport = numTransport;
+            this.NumCaserne = numCaserne;
+            this.DateCommande = dateCommande;
+        }
 
         public int NumCommande
         {
@@ -90,9 +97,10 @@ namespace SAE_2._01_SDIS_BOS
             }
         }
 
-        public int Create()
+        public int Create(Commande c )
         {
-            throw new NotImplementedException();
+            String sql = $"insert into Commande (NUM_TRANSPORT , NUM_CASERNE,DATE_COMMANDE,DATE_LIVRAISON)  values ('{c.numTransport}','{c.NumCaserne}','{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}')";
+            return DataAccess.Instance.SetData(sql);
         }
 
         public int Delete()

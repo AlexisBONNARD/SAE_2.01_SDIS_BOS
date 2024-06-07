@@ -25,9 +25,9 @@ namespace SAE_2._01_SDIS_BOS
     {
         // string pour les ouverture des fenétre
         private String fenetreAOuvrir;
-        private int quantite;
         private double prixAchat;
         private int quantiteAchat;
+        private ObservableCollection<Panier> lePanier = new ObservableCollection<Panier>();
         public String FenetreAOuvrir
         
         {
@@ -76,6 +76,19 @@ namespace SAE_2._01_SDIS_BOS
             set
             {
                 this.quantiteAchat = value;
+            }
+        }
+
+        public ObservableCollection<Panier> LePanier
+        {
+            get
+            {
+                return this.lePanier;
+            }
+
+            set
+            {
+                this.lePanier = value;
             }
         }
 
@@ -228,25 +241,60 @@ namespace SAE_2._01_SDIS_BOS
 
         private void butAjouterCree_Click(object sender, RoutedEventArgs e)
         {
-            string modeLivraison = "";
+            int numlivraison = 0;
 
             MessageBoxResult res =   MessageBox.Show(this,"Information", "Voulez vous confimer votre commande ?", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
             if(radioButCamionCree.IsChecked == true)
             {
-                modeLivraison = "Camion";
+                numlivraison = 1;
             }
-            else if (radioButCamionCree.IsChecked == true)
+            else if (radioButVoitureCree.IsChecked == true)
             {
-                modeLivraison = "Voiture";
+                numlivraison = 2;
             }
 
             if(res == MessageBoxResult.OK)
             {
                 Materiel materiel = (Materiel)dataGridCommandeCree.SelectedItem;
-                Panier panier = new Panier(materiel.LienPhoto, QuantiteAchat,prixAchat, materiel.NomFournisseur,modeLivraison);
+                Panier panier = new Panier(materiel,quantiteAchat,numlivraison);
                 data.LePanier.Add(panier);
 
             }
+        }
+
+        private void butSuprimerCree_Click(object sender, RoutedEventArgs e)
+        {
+            LePanier.Clear();
+        }
+
+        private void butAnnulerCree_Click(object sender, RoutedEventArgs e)
+        {
+            if(dataGridCommandeCree.SelectedItem !=null)
+            {
+                LePanier.Remove( (Panier)dataGridmaterielCree.SelectedItem);
+            }
+        }
+
+        private void butValiderCree_Click(object sender, RoutedEventArgs e)
+        {
+            
+          for(int i =0; i<LePanier.Count;i++)
+            {
+                Commande c = new Commande(0, lePanier[i].Numtransport,int.Parse(NumCaserne), DateTime.Now);
+                data.LesCommandes.Add(c);
+                c.Create(c);
+            }
+
+        }
+
+        private void dataGridCommandeCree_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            double nb = 0;
+            foreach(Panier panier in LePanier)
+            {
+                nb += panier.UnMateriel.Prix * panier.Quantite;
+            }
+            labelPrixTotalCree.Content = $"Prix total {nb}";
         }
     }
 }

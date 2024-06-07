@@ -143,7 +143,7 @@
                             <RowDefinition Height="20*"/>
                         </Grid.RowDefinitions>
                         <Label Content="Matériel commander" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"/>
-                        <DataGrid x:Name="dataGridCommandeCree" ItemsSource="{Binding LePanier}"  AutoGenerateColumns="False" Grid.Row="1" BorderBrush="#000000" BorderThickness="5" FontSize="20" HorizontalAlignment="Center">
+                        <DataGrid x:Name="dataGridCommandeCree" ItemsSource="{Binding LePanier}"  AutoGenerateColumns="False" Grid.Row="1" BorderBrush="#000000" BorderThickness="5" FontSize="20" HorizontalAlignment="Center" SelectionChanged="dataGridCommandeCree_SelectionChanged">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Width="80" Header="Image" IsReadOnly="True">
                                     <DataGridTemplateColumn.CellTemplate>
@@ -159,13 +159,13 @@
                         </DataGrid>
                         <Label x:Name="labelPrixTotalCree" Content="Prix Total : " FontSize="18" FontWeight="Bold" Grid.Row="2"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Grid.Row="2">
-                            <Button x:Name="butValiderCree" ToolTip="Ajouter un nouveau département" Width="30" Height="30">
+                            <Button x:Name="butValiderCree" ToolTip="Ajouter un nouveau département" Width="30" Height="30" Click="butValiderCree_Click">
                                 <Image Source="img\interface\valider.png" />
                             </Button>
-                            <Button x:Name="butSuprimerCree" ToolTip="Ajouter un nouveau département" Margin="10,0,0,0" Width="30" Height="30">
+                            <Button x:Name="butSuprimerCree" ToolTip="Ajouter un nouveau département" Margin="10,0,0,0" Width="30" Height="30" Click="butSuprimerCree_Click">
                                 <Image Source="img\interface\suprimer.png" />
                             </Button>
-                            <Button x:Name="butAnnulerCree" ToolTip="Ajouter un nouveau département" Margin="10,0,0,0" Width="30" Height="30">
+                            <Button x:Name="butAnnulerCree" ToolTip="Ajouter un nouveau département" Margin="10,0,0,0" Width="30" Height="30" Click="butAnnulerCree_Click">
                                 <Image Source="img\interface\ajouter.png" RenderTransformOrigin="0.5,0.5">
                                     <Image.RenderTransform>
                                         <TransformGroup>
