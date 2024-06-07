@@ -176,8 +176,9 @@ namespace SAE_2._01_SDIS_BOS
             }
             catch (NpgsqlException e)
             { Console.WriteLine("pb de requete : " + e); return 0; }
-        */
+        
         }
+        */
 
         public int Create()
         {
