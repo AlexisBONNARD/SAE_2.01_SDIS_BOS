@@ -134,7 +134,7 @@ namespace SAE_2._01_SDIS_BOS
         public static ObservableCollection<Materiel> Read()
         {
             ObservableCollection<Materiel> lesMateriels = new ObservableCollection<Materiel>();
-            String sql = $"SELECT NUM_MATERIEL,NUM_FOURNISSEUR,CODE_TYPE,DESCRIPTION_MATERIEL,LIEN_PHOTO,MARQUE,,DESCRIPTION,PRIX FROM COMMANDE";
+            String sql = $"SELECT NUM_MATERIEL,NUM_FOURNISSEUR,CODE_TYPE,DESCRIPTION_MATERIEL,LIEN_PHOTO,MARQUE,,DESCRIPTION,PRIX FROM MATERIEL";
             DataTable dt = DataAccess.Instance.GetData(sql);
 
             foreach (DataRow res in dt.Rows)
