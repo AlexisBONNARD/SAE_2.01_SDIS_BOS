@@ -19,6 +19,7 @@ namespace SAE_2._01_SDIS_BOS
     {
 
         private ObservableCollection<Sapeur> lesSapeurs = new ObservableCollection<Sapeur>();
+        private ObservableCollection<Materiel> lesMatériel = new ObservableCollection<Materiel>();
         private NpgsqlConnection connexion = null;   // futur lien à la BD
         private string login;
         private string password;
@@ -76,6 +77,18 @@ namespace SAE_2._01_SDIS_BOS
             }
         }
 
+        public ObservableCollection<Materiel> LesMatériel
+        {
+            get
+            {
+                return this.lesMatériel;
+            }
+
+            set
+            {
+                this.lesMatériel = value;
+            }
+        }
 
         public ApplicationData()
         {
