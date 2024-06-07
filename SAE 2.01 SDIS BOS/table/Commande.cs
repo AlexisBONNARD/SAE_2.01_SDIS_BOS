@@ -14,6 +14,15 @@ namespace SAE_2._01_SDIS_BOS
         private DateTime dateCommande;
         private DateTime dateLivraison;
 
+        public Commande(int numCommande, int numTransport, int numCaserne, DateTime dateCommande, DateTime dateLivraison)
+        {
+            this.NumCommande = numCommande;
+            this.NumTransport = numTransport;
+            this.NumCaserne = numCaserne;
+            this.DateCommande = dateCommande;
+            this.DateLivraison = dateLivraison;
+        }
+
         public int NumCommande
         {
             get

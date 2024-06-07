@@ -60,6 +60,7 @@ namespace SAE_2._01_SDIS_BOS
             OuvertureFenetre();
             InitializeComponent();
             lbNumCaserne.Content = $"N° {numCaserne}";
+            data.ReadCommande(1);
 
 
         }
