@@ -80,7 +80,7 @@ namespace SAE_2._01_SDIS_BOS
             DataAccess.Password = tbPassword.Password;
 
 
-            LesSapeurs = Sapeur.Read(tbLogin.Text);
+            LesSapeurs = Sapeur.Read();
                 ((MainWindow)Application.Current.MainWindow).NumCaserne = LesSapeurs[0].NumCasene.ToString();
                 ((MainWindow)Application.Current.MainWindow).FenetreAOuvrir = "Jeux";
             

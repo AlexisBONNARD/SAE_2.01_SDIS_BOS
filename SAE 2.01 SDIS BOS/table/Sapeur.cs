@@ -86,10 +86,10 @@ namespace SAE_2._01_SDIS_BOS
             throw new NotImplementedException();
         }
 
-        public static ObservableCollection<Sapeur> Read(string login)
+        public static ObservableCollection<Sapeur> Read()
         {
             ObservableCollection<Sapeur> lesSapeurs = new ObservableCollection<Sapeur>();
-            String sql = $"SELECT NUM_SAPEUR,NUM_CASERNE,LOGIN_SAPEUR,MDP_SAPEUR  FROM Sapeur where LOGIN_SAPEUR ='{login}' ";
+            String sql = $"SELECT NUM_SAPEUR,NUM_CASERNE,LOGIN_SAPEUR,MDP_SAPEUR  FROM Sapeur where LOGIN_SAPEUR ='{DataAccess.Login}' ";
             DataTable dt = DataAccess.Instance.GetData(sql);
           
                 foreach (DataRow res in dt.Rows)
