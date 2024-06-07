@@ -52,7 +52,7 @@
                         </Button>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Background="#FF040404" HorizontalAlignment="Center" Grid.Row="1">
-                        <DataGrid x:Name="dgCommande" ItemsSource="{Binding LesCommandes}"  AutoGenerateColumns="False">
+                        <DataGrid x:Name="dgCommande" ItemsSource="{Binding LesCommandes}"  AutoGenerateColumns="False" SelectionChanged="dgCommande_SelectionChanged">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="num comande" Binding="{Binding NumCommande}" />
                                 <DataGridTextColumn Header="date commande" Binding="{Binding DateCommande}" />

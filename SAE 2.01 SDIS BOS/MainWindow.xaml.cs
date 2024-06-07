@@ -62,13 +62,7 @@ namespace SAE_2._01_SDIS_BOS
             lbNumCaserne.Content = $"N° {numCaserne}";
             Sapeur.Read();
             Commande.Read();
-            if (dgCommande.SelectedItem != null)
-            {
-                Commande commande = (Commande)dgCommande.SelectedItem;
-
-                dtDateLivraison.SelectedDate = commande.DateLivraison;
-
-            }
+           
         }
         private void ButtonConection(object sender, RoutedEventArgs e)
         {
@@ -119,5 +113,15 @@ namespace SAE_2._01_SDIS_BOS
 
         }
 
+        private void dgCommande_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dgCommande.SelectedItem != null)
+            {
+                Commande commande = (Commande)dgCommande.SelectedItem;
+
+                dtDateLivraison.SelectedDate = commande.DateLivraison;
+
+            }
+        }
     }
 }
