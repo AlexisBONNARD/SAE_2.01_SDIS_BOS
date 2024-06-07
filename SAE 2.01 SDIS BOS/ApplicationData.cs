@@ -76,6 +76,7 @@ namespace SAE_2._01_SDIS_BOS
             }
         }
 
+
         public ApplicationData()
         {
 
@@ -115,6 +116,26 @@ namespace SAE_2._01_SDIS_BOS
                 }
                
                 return dataTable.Rows.Count;
+            }
+            catch (NpgsqlException e)
+            { Console.WriteLine("pb de requete : " + e); return 0; }
+        }
+        public int ReadNumSapeur(string login)
+        {
+            int id = 0;
+            String sql = $"SELECT NUM_CASERNE FROM Sapeur where LOGIN_SAPEUR ='{login}' ";
+            try
+            {
+                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(sql, Connexion);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                foreach (DataRow res in dataTable.Rows)
+                {
+
+                    id = int.Parse(res["NUM_CASERNE"].ToString());
+                }
+
+                return id;
             }
             catch (NpgsqlException e)
             { Console.WriteLine("pb de requete : " + e); return 0; }

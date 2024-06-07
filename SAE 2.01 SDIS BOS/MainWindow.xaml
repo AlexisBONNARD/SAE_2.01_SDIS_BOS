@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="SDIS commandé contre le feux" Height="450" Width="800">
     <Window.DataContext>
-        <local:Caserne x:Name="data"/>
+        <local:ApplicationData x:Name="data"/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -23,7 +23,7 @@
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal">
                 <Image Source="/img/interface/sdis.png" Stretch="Fill" Width="80" Height="80"/>
-                <Label x:Name="lbNumCaserne" Content="{Binding NumCaserne}"   Background="#FFDDDDDD" FontSize="20" VerticalAlignment="Center" Width="49" FontWeight="Bold" Height="30" Margin="20,0,0,0"/>
+                <Label x:Name="lbNumCaserne" Content=""   Background="#FFDDDDDD" FontSize="20" VerticalAlignment="Center" Width="49" FontWeight="Bold" Height="30" Margin="20,0,0,0"/>
             </StackPanel>
             <Button Content="Compte" Height="30" Width="138" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Grid.Column="2" Click="ButtonConection" Margin="0,0,20,0" />
         </Grid>
