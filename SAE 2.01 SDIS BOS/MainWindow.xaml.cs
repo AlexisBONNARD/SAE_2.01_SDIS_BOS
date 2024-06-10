@@ -287,21 +287,14 @@ namespace SAE_2._01_SDIS_BOS
             
           for(int i =0; i<LePanier.Count;i++)
             {
-                Commande c = new Commande(0, lePanier[i].Numtransport,int.Parse(NumCaserne), DateTime.Now);
+                Commande c = new Commande(data.getNumCommande(), lePanier[i].Numtransport,int.Parse(NumCaserne), DateTime.Now,DateTime.Now);
+                DetailCommande dc = new DetailCommande(data.getNumCommande(),LePanier[i].UnMateriel.NumMateriel,LePanier[i].Quantite);
                 data.LesCommandes.Add(c);
                 c.Create(c);
             }
 
         }
 
-        private void dataGridCommandeCree_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-        }
-
-        private void dataGridCommandeCree_AddingNewItem(object sender, AddingNewItemEventArgs e)
-        {
-
-        }
         public void CalculePrixPanier()
         {
             double nb = 0;

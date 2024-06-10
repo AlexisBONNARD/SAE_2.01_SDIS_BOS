@@ -12,6 +12,13 @@ namespace SAE_2._01_SDIS_BOS
         private int numMateriel;
         private double quantite;
 
+        public DetailCommande(int numCommande, int numMateriel, double quantite)
+        {
+            this.NumCommande = numCommande;
+            this.NumMateriel = numMateriel;
+            this.Quantite = quantite;
+        }
+
         public int NumCommande
         {
             get
