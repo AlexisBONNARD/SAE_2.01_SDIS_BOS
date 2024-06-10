@@ -255,9 +255,14 @@ namespace SAE_2._01_SDIS_BOS
 
             if(res == MessageBoxResult.OK)
             {
-                Materiel materiel = (Materiel)dataGridCommandeCree.SelectedItem;
+                Materiel materiel = (Materiel)dataGridmaterielCree.SelectedItem;
                 Panier panier = new Panier(materiel,quantiteAchat,numlivraison);
                 data.LePanier.Add(panier);
+                CalculePrixPanier();
+
+
+
+
 
             }
         }
@@ -265,13 +270,15 @@ namespace SAE_2._01_SDIS_BOS
         private void butSuprimerCree_Click(object sender, RoutedEventArgs e)
         {
             LePanier.Clear();
+            CalculePrixPanier();
         }
 
         private void butAnnulerCree_Click(object sender, RoutedEventArgs e)
         {
             if(dataGridCommandeCree.SelectedItem !=null)
             {
-                LePanier.Remove( (Panier)dataGridmaterielCree.SelectedItem);
+               LePanier.Remove((Panier) dataGridCommandeCree.SelectedItem);
+                CalculePrixPanier();
             }
         }
 
@@ -289,12 +296,24 @@ namespace SAE_2._01_SDIS_BOS
 
         private void dataGridCommandeCree_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+        }
+
+        private void dataGridCommandeCree_AddingNewItem(object sender, AddingNewItemEventArgs e)
+        {
+
+        }
+        public void CalculePrixPanier()
+        {
             double nb = 0;
-            foreach(Panier panier in LePanier)
+            foreach (Panier pn in LePanier)
             {
-                nb += panier.UnMateriel.Prix * panier.Quantite;
+                if (LePanier.Count > 0)
+                {
+                    nb += pn.UnMateriel.Prix * pn.Quantite;
+                }
             }
-            labelPrixTotalCree.Content = $"Prix total {nb}";
+        
+        labelPrixTotalCree.Content = $"Prix total {nb}€";
         }
     }
 }

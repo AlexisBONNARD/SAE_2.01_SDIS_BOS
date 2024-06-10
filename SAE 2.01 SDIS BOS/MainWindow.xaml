@@ -143,18 +143,18 @@
                             <RowDefinition Height="20*"/>
                         </Grid.RowDefinitions>
                         <Label Content="Matériel commander" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"/>
-                        <DataGrid x:Name="dataGridCommandeCree" ItemsSource="{Binding LePanier}"  AutoGenerateColumns="False" Grid.Row="1" BorderBrush="#000000" BorderThickness="5" FontSize="20" HorizontalAlignment="Center" SelectionChanged="dataGridCommandeCree_SelectionChanged">
+                        <DataGrid x:Name="dataGridCommandeCree" ItemsSource="{Binding LePanier}"  AutoGenerateColumns="False" Grid.Row="1" BorderBrush="#000000" BorderThickness="5" FontSize="20" HorizontalAlignment="Center" IsReadOnly="True">
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn Width="80" Header="Image" IsReadOnly="True">
+                                <DataGridTemplateColumn Width="80" Header="Image">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Image MinWidth="70" MinHeight="70" Source="{Binding LienImage}"/>
+                                            <Image MinWidth="70" MinHeight="70" Source="{Binding UnMateriel.LienPhoto}"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTextColumn Width="100" Header="Quantité"/>
-                                <DataGridTextColumn Width="100" Header="Prix Achat" Binding="{Binding PrixAchat}"/>
-                                <DataGridTextColumn Width="120" Header="Fournisseur" Binding="{Binding NomFournisseur}"/>
+                                <DataGridTextColumn Width="100" Header="Quantité" Binding="{Binding Quantite}"  />
+                                <DataGridTextColumn Width="100" Header="Prix Achat" Binding="{Binding UnMateriel.Prix}"/>
+                                <DataGridTextColumn Width="120" Header="Fournisseur" Binding="{Binding Numtransport}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                         <Label x:Name="labelPrixTotalCree" Content="Prix Total : " FontSize="18" FontWeight="Bold" Grid.Row="2"/>
