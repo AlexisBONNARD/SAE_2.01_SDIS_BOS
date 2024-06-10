@@ -5,6 +5,7 @@ using SAE_2._01_SDIS_BOS;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -26,6 +27,7 @@ namespace SAE_2._01_SDIS_BOS
         private NpgsqlConnection connexion = null;   // futur lien à la BD
         private string login;
         private string password;
+        private int numCommande;
 
 
         public ObservableCollection<Sapeur> LesSapeurs
@@ -119,6 +121,19 @@ namespace SAE_2._01_SDIS_BOS
             }
         }
 
+        public int NumCommande
+        {
+            get
+            {
+                return this.numCommande;
+            }
+
+            set
+            {
+                this.numCommande = value;
+            }
+        }
+
         public ApplicationData()
         {
             if (((MainWindow)Application.Current.MainWindow).FenetreAOuvrir == "Jeux")
@@ -130,6 +145,21 @@ namespace SAE_2._01_SDIS_BOS
                 
             }
 
+        }
+        public  int getNumCommande()
+        {
+            Commande c = new Commande(0,0,0,DateTime.Now);
+           for(int i = 0; i < LesCommandes.Count; i++)
+            {
+                 c = LesCommandes[0];
+                if(c.NumCommande<  LesCommandes[i].NumCommande)
+                {
+                    c = LesCommandes[i];
+
+                }
+
+            }
+            return c.NumCommande;
         }
 
 
