@@ -58,9 +58,10 @@ namespace SAE_2._01_SDIS_BOS
             }
         }
 
-        public int Create()
+        public int Create(DetailCommande dt)
         {
-            throw new NotImplementedException();
+            String sql = $"insert into Deta (NUM_COMMANDE , NUM_MATERIEL,QUANTITE)  values ({dt.NumCommande},{dt.NumMateriel},{dt.Quantite})";
+            return DataAccess.Instance.SetData(sql);
         }
 
         public int Delete()
