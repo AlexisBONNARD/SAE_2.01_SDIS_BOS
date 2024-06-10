@@ -241,14 +241,10 @@ namespace SAE_2._01_SDIS_BOS
 
         private void butAjouterCree_Click(object sender, RoutedEventArgs e)
         {
-            int numlivraison = 0;
+            int numlivraison = 1;
 
-            MessageBoxResult res =   MessageBox.Show(this,"Information", "Voulez vous confimer votre commande ?", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
-            if(radioButCamionCree.IsChecked == true)
-            {
-                numlivraison = 1;
-            }
-            else if (radioButVoitureCree.IsChecked == true)
+            MessageBoxResult res =   MessageBox.Show(this, "Voulez vous confimer votre commande ?", "Information", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+             if (radioButVoitureCree.IsChecked == true)
             {
                 numlivraison = 2;
             }
@@ -288,7 +284,7 @@ namespace SAE_2._01_SDIS_BOS
           for(int i =0; i<LePanier.Count;i++)
             {
                 Commande c = new Commande(data.getNumCommande()+i+1, lePanier[i].Numtransport,int.Parse(NumCaserne), DateTime.Now,DateTime.Now);
-                DetailCommande dc = new DetailCommande(data.getNumCommande()+i+1,LePanier[i].UnMateriel.NumMateriel,LePanier[i].Quantite);
+                DetailCommande dc = new DetailCommande(data.getNumCommande(),LePanier[i].UnMateriel.NumMateriel,LePanier[i].Quantite);
                 data.LesCommandes.Add(c);
                 data.LesDetailsCommandes.Add(dc);
                 c.Create(c);
