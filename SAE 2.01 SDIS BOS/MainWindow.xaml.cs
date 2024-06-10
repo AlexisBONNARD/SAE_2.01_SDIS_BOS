@@ -287,11 +287,13 @@ namespace SAE_2._01_SDIS_BOS
             
           for(int i =0; i<LePanier.Count;i++)
             {
-                Commande c = new Commande(data.getNumCommande(), lePanier[i].Numtransport,int.Parse(NumCaserne), DateTime.Now,DateTime.Now);
-                DetailCommande dc = new DetailCommande(data.getNumCommande(),LePanier[i].UnMateriel.NumMateriel,LePanier[i].Quantite);
+                Commande c = new Commande(data.getNumCommande()+1, lePanier[i].Numtransport,int.Parse(NumCaserne), DateTime.Now,DateTime.Now);
+                DetailCommande dc = new DetailCommande(data.getNumCommande()+1,LePanier[i].UnMateriel.NumMateriel,LePanier[i].Quantite);
                 data.LesCommandes.Add(c);
                 c.Create(c);
             }
+            LePanier.Clear();
+            UpdatePrixLabel();
 
         }
 
