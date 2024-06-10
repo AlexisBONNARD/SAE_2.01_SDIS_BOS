@@ -99,7 +99,7 @@ namespace SAE_2._01_SDIS_BOS
 
         public int Create(Commande c )
         {
-            String sql = $"insert into Commande (NUM_TRANSPORT , NUM_CASERNE,DATE_COMMANDE,DATE_LIVRAISON)  values ('{c.numTransport}','{c.NumCaserne}','{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}','{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}')";
+            String sql = $"insert into Commande (NUM_TRANSPORT , NUM_CASERNE,DATE_COMMANDE,DATE_LIVRAISON)  values ('{c.numTransport}','{c.NumCaserne}','{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day},'{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}')";
             return DataAccess.Instance.SetData(sql);
         }
 
