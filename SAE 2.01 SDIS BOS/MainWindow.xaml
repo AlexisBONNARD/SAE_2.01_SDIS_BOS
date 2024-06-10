@@ -57,7 +57,7 @@
                     <StackPanel Orientation="Horizontal" Background="#FF040404" HorizontalAlignment="Center" Grid.Row="1">
                         <DataGrid x:Name="dgCommande" ItemsSource="{Binding LesCommandes}"  AutoGenerateColumns="False" SelectionChanged="dgCommande_SelectionChanged" FontSize="20">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="num comande" Binding="{Binding NumCommande}" />
+                                <DataGridTextColumn Header="num commande" Binding="{Binding NumCommande}" />
                                 <DataGridTextColumn Header="date commande" Binding="{Binding DateCommande}" />
                                 <DataGridTextColumn Header="date livraison" Binding="{Binding DateLivraison}"/>
 
@@ -65,8 +65,14 @@
                         </DataGrid>
                         <DataGrid ItemsSource="{Binding Materiel}" Margin="50,0,0,0" FontSize="20">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="photo" Binding="{Binding lienPhoto}"/>
-                                <DataGridTextColumn Header="Prix" Binding="{Binding Prix}"/>
+                                <DataGridTemplateColumn Width="80" Header="Image" IsReadOnly="True">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image MinWidth="70" MinHeight="70" Source="{Binding LienPhoto}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="Prix" Width="80"  Binding="{Binding Prix}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>
@@ -77,7 +83,7 @@
                         <ComboBoxItem Content="Accessoires"/>
                     </ComboBox>
                     <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
-                        <Label Content="Renseigner daten de livraison" FontSize="20" FontWeight="Bold" />
+                        <Label Content="Renseigner date de livraison" FontSize="20" FontWeight="Bold" />
                         <DatePicker x:Name="dtDateLivraison" FontSize="20"/>
                         <Button Width="80" Margin="0,20,0,0" Content="Valider" FontSize="20" FontWeight="Bold" IsDefault="True" />
                     </StackPanel>
@@ -87,7 +93,7 @@
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Crée" Foreground="Red" FontSize="20"/>
+                        <TextBlock Text="Créer" Foreground="Red" FontSize="20"/>
                     </StackPanel>
                 </TabItem.Header>
 
@@ -131,7 +137,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
                                 <DataGridTextColumn Width="100" Header="Prix Achat" Binding="{Binding Prix}"/>
-                                <DataGridTextColumn Width="120" Header="Fournisseur" Binding="{Binding NomFournisseur}"/>
+                                <DataGridTextColumn Width="180" Header="Fournisseur" Binding="{Binding NomFournisseur}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>
@@ -178,7 +184,7 @@
                     </Grid>
 
                     <StackPanel Grid.RowSpan="2" Grid.Column="2" Grid.Row="1">
-                        <Label Content="Materiel selectioner" FontSize="18" HorizontalAlignment="Center" FontWeight="Bold"/>
+                        <Label Content="Matériel sélectioner" FontSize="18" HorizontalAlignment="Center" FontWeight="Bold"/>
                         <Label Content="Quantité : " FontSize="20" HorizontalAlignment="Center"/>
                         <Slider x:Name="sliderQuantiteCree" Margin="50,0,50,0" Minimum="1" Maximum="100" Value="1" SmallChange="1" TickFrequency="1" IsSnapToTickEnabled="True" ValueChanged="sliderQuantiteCree_ValueChanged" ToolTip="{Binding Value, RelativeSource={RelativeSource Self}}"/>
                         <Label Content="Mode de livraison" FontSize="20" HorizontalAlignment="Center"/>
@@ -186,7 +192,7 @@
                             <RadioButton x:Name="radioButVoitureCree" Content="Voiture" Margin="0,0,20,0" FontSize="18"/>
                             <RadioButton x:Name="radioButCamionCree" Content="Camion" FontSize="18"/>
                         </StackPanel>
-                        <Label x:Name="labelPrixmaterielCree" Content="Prix Materiel : 0.00" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+                        <Label x:Name="labelPrixmaterielCree" Content="Prix Matériel : 0.00" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
 
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <Button x:Name="butAjouterCree" ToolTip="Ajouter un nouveau département" Width="30" Height="30" Click="butAjouterCree_Click">
