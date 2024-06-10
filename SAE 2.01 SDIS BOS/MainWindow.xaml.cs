@@ -312,5 +312,19 @@ namespace SAE_2._01_SDIS_BOS
         
         labelPrixTotalCree.Content = $"Prix total {nb}€";
         }
+
+        private void btValider_Click(object sender, RoutedEventArgs e)
+        {
+            if(dtDateLivraison.SelectedDate !=null && dtDetailCommande.SelectedItem !=null)
+            {
+                Commande c = (Commande)dgCommande.SelectedItem;
+                c.DateLivraison =  (DateTime)dtDateLivraison.SelectedDate;
+               for(int i = 0; i < data.LesCommandes.Count; i++)
+                {
+                    data.LesCommandes[(int)dgCommande.SelectedIndex] = c;
+                }
+
+            }
+        }
     }
 }

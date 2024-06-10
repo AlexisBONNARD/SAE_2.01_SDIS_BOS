@@ -85,7 +85,7 @@
                     <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
                         <Label Content="Renseigner date de livraison" FontSize="20" FontWeight="Bold" />
                         <DatePicker x:Name="dtDateLivraison" FontSize="20"/>
-                        <Button Width="80" Margin="0,20,0,0" Content="Valider" FontSize="20" FontWeight="Bold" IsDefault="True" />
+                        <Button x:Name="btValider" Width="80" Margin="0,20,0,0" Content="Valider" FontSize="20" FontWeight="Bold" IsDefault="True" Click="btValider_Click" />
                     </StackPanel>
                 </Grid>
 
