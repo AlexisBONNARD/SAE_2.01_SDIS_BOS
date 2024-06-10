@@ -63,12 +63,12 @@
 
                             </DataGrid.Columns>
                         </DataGrid>
-                        <DataGrid ItemsSource="{Binding Materiel}" Margin="50,0,0,0" FontSize="20">
+                        <DataGrid ItemsSource="{Binding LesDetailsCommandes}" Margin="50,0,0,0" FontSize="20">
                             <DataGrid.Columns>
                                 <DataGridTemplateColumn Width="80" Header="Image" IsReadOnly="True">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Image MinWidth="70" MinHeight="70" Source="{Binding LienPhoto}"/>
+                                            <Image MinWidth="70" MinHeight="70" Source="{Binding LienImage}"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
